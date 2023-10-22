@@ -1,0 +1,368 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+p{font-family: 'Montserrat', sans-serif;}
+
+.nav-item a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 15px;
+    transition: all 0.4s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-item a:hover{
+    color: rgb(20, 219, 20);
+}
+
+.navbar-brand{
+    height: 50px;
+    width: 100px;
+}
+
+.search{
+    height: 45px;
+    outline: none;
+    border:2px solid rgb(20, 219, 20);
+    background-color: transparent;
+    border-radius: 20px 0px 0px 20px;
+    border-right: none;
+}
+
+.btn1{
+    height: 45px;
+    outline: none;
+    border: none;
+    background-color: rgb(20, 219, 20);
+    color: white;
+    border-radius: 0px 20px 20px 0px;
+    transition: all 0.4s;
+}
+
+.btn1:hover{
+    background-color: rgb(13, 172, 13);
+}
+
+.bi-basket{
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
+
+.bi-basket:hover{
+    color: rgb(20, 219, 20);
+}
+
+.bi-person-fill{
+    font-size: 34px;
+    color: black;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
+
+.bi-person-fill:hover{
+    color: rgb(20, 219, 20);
+}
+
+.main{
+    background: url(./imgs/fr5.jpg);
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+
+}
+
+.main h1{
+    font-size: 3rem;
+    font-family: 'Righteous', cursive;
+}
+
+.main p:nth-child(1){
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.main p:nth-child(2){
+    font-size: 15px;
+    color: gray;
+}
+
+.mbtn1{
+    height: 35px;
+    width: 23%;
+    outline: none;
+    border: none;
+    color: white;
+    background: rgb(20, 219, 20);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn1:hover {
+    background-color: rgb(13, 172, 13);
+}
+
+.mbtn2{
+    height: 35px;
+    width: 23%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid rgb(20, 219, 20);
+    color: rgb(20, 219, 20);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn2:hover{
+    background-color: rgb(20, 219, 20);
+    border: none;
+    color: white;
+}
+
+.about{
+    background: url(./imgs/about5M-modified.jpg);
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+}
+
+.line{
+    height: 5px;
+    width: 30%;
+    background: rgb(20, 219, 20);
+    display: inline-block;
+}
+
+.about h1{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.about p:nth-child(1){
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.about p:nth-child(2){
+    font-size: 15px;
+    color: gray;
+}
+
+.welcome{
+    background-color: rgb(20, 219, 20);
+}
+
+.line2{
+    height: 3px;
+    width: 30%;
+    background-color: white;
+    display: inline-block;
+}
+
+.welcome h1{
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.welcome .card{
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.welcome i{
+    font-size: 30px;
+    color: rgb(20, 219, 20);
+}
+
+.welcome h2{
+    font-weight: lighter;
+    padding: 3px 0px;
+    font-size: 18px;
+}
+
+.welcome p{
+    font-size: 15px;
+}
+
+.card-body p{
+    font-size: 13px;
+}
+
+.product h1{
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.product p:nth-child(1){
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.product p:nth-child(2){
+    font-size: 15px;
+    color: gray;
+}
+
+.star{
+    text-align: end;
+    color: orange;
+}
+
+.product .card-body{
+    border: 1px dashed rgb(175, 172, 172);
+
+
+}
+
+.product .card{
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.head1 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.per1 {
+    color: rgb(168, 162, 162);
+}
+
+.btnc{
+    height: 50px;
+    width: 50%;
+    outline: none;
+    border: none;
+    color: white;
+    background: rgb(20, 219, 20);
+    border-radius: 50px;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.4s;
+}
+
+.btnc:hover{
+    outline: none;
+    border: 1px solid rgb(20, 219, 20);
+    color: rgb(20, 219, 20);
+    background: transparent;
+    border-radius: 50px;
+}
+
+.discount{
+    background: rgb(20, 219, 20);
+    color: white;
+
+}
+
+.dbtn{
+    height: 50px;
+    width: 75%;
+    outline: none;
+    border: none;
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+    margin: 0 auto;
+    display: block;
+    font-weight: lighter;
+    transition: all 0.4s;
+}
+
+.dbtn:hover{
+    background-color: rgb(228, 228, 228);
+}
+
+.seller h1{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.seller i{
+    color: orange;
+}
+
+.seller .card{
+    border-radius: 0;
+    border: none;
+}
+
+
+/* Style pour le footer */
+footer {
+    background-color: #333; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte du footer */
+    padding: 20px;
+}
+
+.footer-content {
+    max-width: 1200px; /* Largeur maximale du contenu du footer */
+    margin: 0 auto; /* Centrer le contenu horizontalement */
+    display: flex;
+    justify-content: space-between; /* Aligner les éléments à l'extrémité gauche et droite */
+}
+
+.footer-logo {
+    flex: 1; /* Occupe une partie égale de l'espace disponible */ 
+}
+
+.footer-logo img{
+    width: 100px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.footer-links li {
+    margin-right: 20px; /* Espacement entre les éléments de la liste */
+}
+
+/* Style pour les liens dans le footer */
+.footer-links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Ajoutez d'autres styles selon vos besoins */
+
+
+/*Popup de conx*/
+/*.ConxSection{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: transparent; /*A vérifier*/
+
+.wrapper{
+    position: fixed;
+    left: 550px;
+    top: 170px;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
