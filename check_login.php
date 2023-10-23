@@ -17,7 +17,7 @@ if(isset($_POST["email"]))
 
  if($total_row > 0)
  {
-    echo 3;
+    
   $result = $statement->fetchAll();
 
   foreach($result as $row)
@@ -28,19 +28,19 @@ if(isset($_POST["email"]))
 
    if($_POST["password"]==$row["password"])
    {
-    echo 4;
+   
     $_SESSION["name"] = $row["prenom"];
    }
    else
    {
-    echo 5;
+   
     $output = '<label class="text-danger">Wrong Password</label>';
    }
   }
  }
  else
  {
-    echo 6;
+    
   $output = '<label class="text-danger">Wrong Email Address</label>';
  }
 
