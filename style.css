@@ -67,7 +67,17 @@ p{font-family: 'Montserrat', sans-serif;}
     padding-top: 5px;
     transition: all 0.4s;
 }
+.bi-box-arrow-right{
+    font-size: 34px;
+    color: black;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
 
+.bi-box-arrow-right:hover{
+    color: rgb(20, 219, 20);
+}
 .bi-person-fill:hover{
     color: rgb(20, 219, 20);
 }

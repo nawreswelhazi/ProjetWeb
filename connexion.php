@@ -3,16 +3,18 @@
         <div class="wrapper" id="wrapper">
 
           <div class="form-box login">
-
+          
               <h2>Login</h2>
+              <span id="error_message"></span>
+         
 
-              <form action="#">
+              <form method="post" id="login_form">
 
                   <div class="input-box">
 
                       <span class="icon"><i class="bi bi-envelope-fill"></i></span>
 
-                      <input type="email" required>
+                      <input type="email" name="email" required>
 
                       <label>Email</label>
 
@@ -22,7 +24,7 @@
 
                       <span class="icon"><i class="bi bi-lock-fill"></i></span>
 
-                      <input type="password" required>
+                      <input type="password" name="password" required>
 
                       <label>Mot de passe</label>
 
@@ -36,7 +38,7 @@
 
                   </div>
 
-                  <button type="submit" class="btn"></button>
+                  <button type="submit" id="submit" value="nogin" name="submit" class="btn">Connexion</button>
 
                   <div class="login-register">
 
@@ -53,3 +55,30 @@
         <div id="overlay"></div>
 
       </section>
+      <script>
+$(document).ready(function(){
+ $('#login_form').on('submit', function(event){
+    
+  event.preventDefault();
+  $.ajax({
+   url:"check_login.php",
+   method:"POST",
+   data:$(this).serialize(),
+   success:function(data){
+    if(data != '')
+    {
+       
+     $('#error_message').html(data);
+    }
+    else
+    {
+      
+     window.location = 'index.php';
+    }
+   }
+  })
+ });
+});
+</script>
+
+
