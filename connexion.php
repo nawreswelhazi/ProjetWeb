@@ -37,7 +37,7 @@
 
         <div class="form-box register">
             <h2>S'inscrire</h2>
-            <form action="#">
+            <form action="#" id="login_form">
                 <div class="row  g-2 py-2" >
                     <div class="input-box col-lg-4">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
@@ -53,13 +53,12 @@
 
                     <div class="input-box col-lg-4">
                         <input type="date" required>
-                        <label>Date de naîssance</label>
                     </div>
                 </div>
 
                 <div class="row  g-2 py-2" >
                     <div class="input-box col-lg-12">
-                        <span class="icon"><i class="bi bi-person-fill"></i></span>
+                        <span class="icon"><i class="bi bi-house"></i></span>
                         <input type="text" required>
                         <label>Adresse</label>
                     </div>
@@ -80,7 +79,7 @@
                 <div class="row  g-2 py-2" >
                     <button type="submit" class="btnRegister col-lg-6">Se connecter</button>
                     <div class="login-register col-lg-6">
-                        <p>Déjà inscrit? <a href="#" class="register-link">Connectez-vous</a></p>
+                        <p>Déjà inscrit? <a id=reOpenConnect href="#" class="register-link">Connectez-vous</a></p>
                     </div>
                 </div>
             </form>
@@ -92,30 +91,30 @@
 
 <script src="script.js"></script>
 
-      <script>
-$(document).ready(function(){
- $('#login_form').on('submit', function(event){
-    
-  event.preventDefault();
-  $.ajax({
-   url:"check_login.php",
-   method:"POST",
-   data:$(this).serialize(),
-   success:function(data){
-    if(data != '')
-    {
-       
-     $('#error_message').html(data);
+<script>
+    $(document).ready(function(){
+    $('#login_form').on('submit', function(event){
+        
+    event.preventDefault();
+    $.ajax({
+    url:"check_login.php",
+    method:"POST",
+    data:$(this).serialize(),
+    success:function(data){
+        if(data != '')
+        {
+        
+        $('#error_message').html(data);
+        }
+        else
+        {
+        
+        window.location = 'index.php';
+        }
     }
-    else
-    {
-      
-     window.location = 'index.php';
-    }
-   }
-  })
- });
-});
+    })
+    });
+    });
 </script>
 
 
