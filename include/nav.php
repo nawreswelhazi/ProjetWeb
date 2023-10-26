@@ -50,8 +50,9 @@
               <input class="px-2 search " type="search" placeholder="Search" aria-label="Search">
               <button class="btn1 me-3 px-3" type="submit">Search</button>
               <span><i class="bi bi-basket px-3"></i></span>
-              <span id="btnPopup"><i class="bi bi-person-fill"></i></span>
-             <!-- <span> <i class="bi bi-box-arrow-right"></i></span> -->
+                  <span id="btnPopup"><i class="bi bi-person-fill"></i></span>
+            
+             <span> <i class="bi bi-box-arrow-right px-3"></i></span>
             </form>
           </div>
         </div>
