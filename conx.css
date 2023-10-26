@@ -1,0 +1,43 @@
+.alert{
+    background: rgb(230, 1, 1);
+    width: 400px;
+    height: 20px;
+    position: fixed;
+    right: 50%;
+    top: 10px;
+    border-radius: 4px;
+    border-left: 6px solid rgb(167, 17, 17);
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    transform: translateX(50%);
+    display: flex;
+}
+
+.alert i.bi-dash-circle-fill{
+    position: fixed;
+    left: 5%;
+    top: 1px;
+    margin: auto;
+    display: flex;
+    color: rgb(222, 209, 209);
+    font-size: 25px;
+}
+
+.alert .msg{
+    padding: 0 20px;
+    font-size: 18px;
+    color: white;
+}
+
+.alert.show{
+    animation: show_slide 0.3s ease forwards;
+}
+
+@keyframes show_slide {
+    0%{
+        transform: translateX(100%);
+    }
+}
+
+

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="./conx.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <?php 
 if(isset($_POST["email"]))
 {
@@ -22,9 +24,6 @@ if(isset($_POST["email"]))
 
   foreach($result as $row)
   {
-    echo $row["password"];
-    echo $_POST["password"];
-    echo $_POST["password"]==$row["password"];
 
    if($_POST["password"]==$row["password"])
    {
@@ -34,20 +33,28 @@ if(isset($_POST["email"]))
    else
    {
    
-    $output = '<label class="text-danger">Wrong Password</label>';
+    $output = '
+    <div id="alert" class="alert show">
+      <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
+      <span class="msg">   Mot de passe incorrect  </span>';
    }
   }
  }
  else
  {
     
-  $output = '<label class="text-danger">Wrong Email Address</label>';
+  $output = '
+  <div id="alert" class="alert show">
+    <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
+    <span class="msg">    Ce mail n`existe pas   </span>';
  }
 
  echo $output;
 }
 
 ?>
+
+<script src="script.js"></script>
 
 
 

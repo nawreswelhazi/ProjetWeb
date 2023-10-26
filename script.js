@@ -43,3 +43,21 @@ function openRegister(){
     popupRegister.style.width = '800px'
     popupRegister.style.height = '500px'
 }
+
+// Sélectionnez l'élément alert
+const alertElement = document.getElementById('alert');
+inputMail = document.getElementById('email');
+inputPassword = document.getElementById('password');
+var btnConnecter= document.getElementById('submit');
+
+// Retirez la classe 'hidden' après 3000 millisecondes (3 secondes)
+btnConnecter.addEventListener('click', ViderChamps());
+
+function ViderChamps(){
+    inputMail.value = "";
+    inputPassword.value = "";
+}
+
+setTimeout(function() {
+    alertElement.style.display = 'none';
+}, 2500);

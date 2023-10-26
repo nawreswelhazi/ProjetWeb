@@ -11,12 +11,12 @@
             <form method="post" id="login_form">
                 <div class="input-box">
                     <span class="icon"><i class="bi bi-envelope-fill"></i></span>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" id="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="bi bi-lock-fill"></i></span>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" id="password" required>
                     <label>Mot de passe</label>
                 </div>
                 <div class="remember-forget">
