@@ -22,9 +22,8 @@ if(isset($_POST["email"]))
 
   foreach($result as $row)
   {
-    echo $row["password"];
-    echo $_POST["password"];
-    echo $_POST["password"]==$row["password"];
+    
+    
 
    if($_POST["password"]==$row["password"])
    {
