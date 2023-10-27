@@ -9,7 +9,6 @@
     <!-- bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./styleNavbar.css">
        
     
 </head>
@@ -373,22 +372,7 @@
 
 
 
-      <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="./imgs/logoo.png" alt="Logo de l'entreprise">
-            </div>
-            <div class="footer-links">
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Produits</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-
+      <?php include "include/footer.php" ?>
 
       
 
