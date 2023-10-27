@@ -25,24 +25,49 @@ if(isset($_POST["action"]))
 	$result=mysqli_query($con,$query);
             
 	$total_row = mysqli_num_rows($result);
-	$output = '';
+    $output = ''; // Initialisez la variable $output en dehors de la boucle
+    $count = 0; // Initialisez un compteur
 	if($total_row)
 	{
         while($row = mysqli_fetch_array($result))
 		{
-			$output .= '
-			<li class="list-item">
-			<div class="list-content">
-			<a href="'.$row['urlP'].'">
-			  <img src="images/products/'. $row['imageP'] .'" alt="image of '. $row['nom'] .'" />
-			</a>
-			  <a align="center" href="'.$row['urlP'].'">'. $row['nom'] .'</a>
-			  <h4 style="text-align:center;" class="text-danger" >'. $row['prix'] .' DT</h4>
-		</div>
-  			</li>
-			
-			';
+            if ($count % 3 === 0) {
+                // Ouverture d'une nouvelle ligne après chaque ensemble de 3 éléments
+                $output .= '<div class="row">';
+            }
+
+            $output .= '
+            <div class="col-lg-4">
+                <div class="card p-2">
+                    <div class="card-body">
+                        <div class="star">';
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($i <= $row['classement']) {
+                                    $output .= '<span><i class="bi bi-star-fill"></i></span>';
+                                } else {
+                                    $output .= '<span><i class="bi bi-star"></i></span>';
+                                }
+                            }
+                        $output .='</div>
+                        <img src="./images/products/'.$row['imageP'].'" class="img-fluid pb-3" alt="">
+                        <h4 class="head1">'.$row['nom'].'</h4>
+                        <p class="per1">1 x '.$row['Qteunite'].$row['unite'].'</p>
+                        <h4 class="head1">'.$row['prix'].' euros</h4>
+                        <button class="btnc my-4">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>';
+
+            if ($count % 3 === 2) {
+                // Fermeture de la ligne après chaque ensemble de 3 éléments
+                $output .= '</div>';
+            }
+
+            $count++;
 		}
+        if ($count % 3 !== 0) {
+            $output .= '</div>';
+        }
 	}
 	else
 	{
