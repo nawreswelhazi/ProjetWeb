@@ -1,4 +1,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="conx.css">
 
 <section class="ConxSection">
     <div class="wrapper" id="wrapper">
@@ -23,7 +24,7 @@
                     <label><input type="checkbox">Se souvenir de moi</label>
                     <a href="#">Mot de passe oublié?</a>
                 </div>
-                <button type="submit" id="submit" value="login" name="submit" class="btn">Se connecter</button>
+                <button type="submit" id="submit" value="login" name="submit" class="btnConnect">Se connecter</button>
 
                 <div class="login-register">
                     <p>Vous n'avez pas de compte? <a id=PopUpRegister href="#" class="register-link">Inscrivez-vous</a></p>
@@ -88,8 +89,8 @@
     
     <div id="overlay"></div>
 </section>
-
 <script src="script.js"></script>
+
 
 <script>
     $(document).ready(function(){
