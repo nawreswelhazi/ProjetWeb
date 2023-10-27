@@ -4,7 +4,7 @@
     <div class="wrapper" id="wrapper">
 
         <span class="icon-close" id="btnClose"><i class="bi bi-x-lg"></i></span>
-
+        
         <div class="form-box login">
             <h2>Login</h2>
             <span id="error_message"></span>
@@ -101,15 +101,20 @@
     method:"POST",
     data:$(this).serialize(),
     success:function(data){
-        if(data != '')
+        if((data.includes("Succes"))==false)
         {
+           
         
         $('#error_message').html(data);
         }
         else
         {
-        
-        window.location = 'index.php';
+           
+            closeModal();
+            location.reload();
+            
+
+
         }
     }
     })

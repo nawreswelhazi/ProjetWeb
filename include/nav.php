@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg  pb-3">
         <div class="container ">
           <a class="navbar-brand" href="#"><img src="./imgs/logo.png" class="img-fluid" alt=""></a>
@@ -52,7 +53,19 @@
               <span><i class="bi bi-basket px-3"></i></span>
                   <span id="btnPopup"><i class="bi bi-person-fill"></i></span>
             
-             <span> <i class="bi bi-box-arrow-right px-3"></i></span>
+             
+               
+                  
+             <?php 
+              
+              if(isset($_SESSION["name"]))
+              {   
+                   
+                    echo "<h1 align='center'>".$_SESSION["name"]."</h1>";  
+                    echo  "<span> <a href='logout.php'><i  class='bi bi-box-arrow-right px-3'></i></a></span>";
+                }  
+               
+                ?>  
             </form>
           </div>
         </div>
