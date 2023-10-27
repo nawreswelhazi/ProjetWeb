@@ -38,29 +38,32 @@
 
         <div class="form-box register">
             <h2>S'inscrire</h2>
-            <form action="#" id="login_form">
+            <span id="error_message_register"></span>
+            <span id="sucess_message_register"></span>
+            <form method="POST" id="register_form">
                 <div class="row  g-2 py-2" >
                     <div class="input-box col-lg-4">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input type="text" id="nom" required>
+                        <input type="text" id="nom" name="nom" required>
                         <label>Nom</label>
                     </div>
 
                     <div class="input-box col-lg-4">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input type="text" id="prenom" required>
+                        <input type="text" id="prenom" name="prenom" required>
                         <label>Prénom</label>
                     </div>
 
                     <div class="input-box col-lg-4">
-                        <input type="date" id="birthday" required>
+                        <input type="date" name="dateNaissance" id="birthday" required>
                     </div>
                 </div>
+                
 
                 <div class="row  g-2 py-2" >
                    <div class="input-box col-lg-12">
                         <span class="icon"><i class="bi bi-envelope-fill"></i></span>
-                        <input type="email" id="emailProposed" required>
+                        <input type="email" id="emailProposed" name="email" required>
                         <label>Email</label>
                     </div>
                 </div>
@@ -68,19 +71,19 @@
                 <div class="row  g-2 py-2" >
                    <div class="input-box col-lg-6">
                         <span class="icon"><i class="bi bi-lock-fill"></i></span>
-                        <input type="password" id="PasswordProposed" required>
+                        <input type="password" name="password" id="PasswordProposed" required>
                         <p id="validity">Mot de passe <span id="strength"></span></p>
                         <label>Mot de passe</label>
                     </div>
                     <div class="input-box col-lg-6">
                         <span class="icon"><i class="bi bi-lock-fill"></i></span>
-                        <input type="password" id="PasswordProposed2" required>
+                        <input type="password" name="confPassword" id="PasswordProposed2" required>
                         <p id="validity2">Mot de passe <span id="strength2"></span></p>
                         <label>Confirmer le mot de passe</label>
                     </div>
                 </div>
                 <div class="row  g-2 py-2" >
-                    <button type="submit" id="btnInscription" class="btnRegister col-lg-6">S'inscrire</button>
+                    <button type="submit" id="btnInscription" name="submit" value="register"  class="btnRegister col-lg-6">S'inscrire</button>
                     <div class="login-register col-lg-6">
                         <p>Déjà inscrit? <a id=reOpenConnect href="#" class="register-link">Connectez-vous</a></p>
                     </div>
@@ -123,6 +126,31 @@
     }
     })
     });
+    $('#register_form').on('submit', function(event){
+        
+        event.preventDefault();
+        $.ajax({
+        url:"inscription.php",
+        method:"POST",
+        data:$(this).serialize(),
+        success:function(data){
+            if((data.includes("Successful"))==false)
+            {
+               
+            
+            $('#error_message_register').html(data);
+            }
+            else
+            {
+                $('#sucess_message_register').html(data);
+               
+                
+    
+    
+            }
+        }
+        })
+        });
     });
 </script>
 
