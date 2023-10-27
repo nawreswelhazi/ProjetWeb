@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <!-- google fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -7,7 +5,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&display=swap" rel="stylesheet"> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
->>>>>>> 42f7b2eadc203ad81b1200de642f721961da6bc0
 
 <nav class="navbar navbar-expand-lg  pb-3">
         <div class="container">
@@ -60,7 +57,7 @@
             <form class="d-flex" role="search">
               <input class="px-2 search " type="search" placeholder="Search" aria-label="Search">
               <button class="btn1 me-3 px-3" type="submit">Search</button>
-              <span><i class="bi bi-basket px-3"></i></span>
+             
                   <span id="btnPopup"><i class="bi bi-person-fill"></i></span>
             
              
@@ -71,7 +68,7 @@
               if(isset($_SESSION["name"]))
               {   
                    
-                    echo "<h1 align='center'>".$_SESSION["name"]."</h1>";  
+                  echo "<span><i class='bi bi-basket px-3'></i></span>";
                     echo  "<span> <a href='logout.php'><i  class='bi bi-box-arrow-right px-3'></i></a></span>";
                 }  
                
