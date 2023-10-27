@@ -184,6 +184,13 @@
     background: rgba(0, 0, 0, .3);
 }
 
+.btnRegister:disabled {
+    background: rgba(200, 200, 200, .5); /* Style pour le fond lorsque le bouton est désactivé */
+    color: black; /* Style pour la couleur du texte lorsque le bouton est désactivé */
+    border: 2px solid rgba(200, 200, 200, .5); /* Style de la bordure lorsque le bouton est désactivé */
+    cursor: not-allowed; /* Changer le curseur lorsque le bouton est désactivé */
+}
+
 
 .alert{
     background: rgb(230, 1, 1);
