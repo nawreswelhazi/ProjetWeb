@@ -227,4 +227,26 @@
     }
 }
 
+#validity{
+    position: absolute;
+    bottom: -50px;
+    color: #fff;
+    font-size: 15px;
+    display: none;
+}
+
+::placeholder{
+    font-size: 15px;
+}
+
+#validity2{
+    position: absolute;
+    bottom: -50px;
+    color: #fff;
+    font-size: 15px;
+    display: none;
+}
+
+
+
 

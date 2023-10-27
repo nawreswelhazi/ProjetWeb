@@ -42,43 +42,45 @@
                 <div class="row  g-2 py-2" >
                     <div class="input-box col-lg-4">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input type="text" required>
+                        <input type="text" id="nom" required>
                         <label>Nom</label>
                     </div>
 
                     <div class="input-box col-lg-4">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input type="text" required>
+                        <input type="text" id="prenom" required>
                         <label>Prénom</label>
                     </div>
 
                     <div class="input-box col-lg-4">
-                        <input type="date" required>
+                        <input type="date" id="birthday" required>
                     </div>
                 </div>
 
                 <div class="row  g-2 py-2" >
-                    <div class="input-box col-lg-12">
-                        <span class="icon"><i class="bi bi-house"></i></span>
-                        <input type="text" required>
-                        <label>Adresse</label>
-                    </div>
-                </div>
-
-                <div class="row  g-2 py-2" >
-                    <div class="input-box col-lg-6">
+                   <div class="input-box col-lg-12">
                         <span class="icon"><i class="bi bi-envelope-fill"></i></span>
-                        <input type="email" required>
+                        <input type="email" id="emailProposed" required>
                         <label>Email</label>
+                    </div>
+                </div>
+
+                <div class="row  g-2 py-2" >
+                   <div class="input-box col-lg-6">
+                        <span class="icon"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" id="PasswordProposed" required>
+                        <p id="validity">Mot de passe <span id="strength"></span></p>
+                        <label>Mot de passe</label>
                     </div>
                     <div class="input-box col-lg-6">
                         <span class="icon"><i class="bi bi-lock-fill"></i></span>
-                        <input type="password" required>
-                        <label>Mot de passe</label>
+                        <input type="password" id="PasswordProposed2" required>
+                        <p id="validity2">Mot de passe <span id="strength2"></span></p>
+                        <label>Confirmer le mot de passe</label>
                     </div>
                 </div>
                 <div class="row  g-2 py-2" >
-                    <button type="submit" class="btnRegister col-lg-6">Se connecter</button>
+                    <button type="submit" id="btnInscription" class="btnRegister col-lg-6">S'inscrire</button>
                     <div class="login-register col-lg-6">
                         <p>Déjà inscrit? <a id=reOpenConnect href="#" class="register-link">Connectez-vous</a></p>
                     </div>
@@ -90,6 +92,7 @@
     <div id="overlay"></div>
 </section>
 <script src="script.js"></script>
+<script src="passwordFort.js"></script>
 
 
 <script>
@@ -122,5 +125,8 @@
     });
     });
 </script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 
 
