@@ -58,10 +58,22 @@
             <form class="d-flex" role="search">
               <input class="px-2 search " type="search" placeholder="Rechercher" aria-label="Search">
               <button class="btn1 me-3 px-3" type="submit">Rechercher</button>
-              <span><i class="bi bi-basket px-3"></i></span>
+             
                   <span id="btnPopup"><i class="bi bi-person-fill"></i></span>
             
-             <span> <i class="bi bi-box-arrow-right px-3"></i></span>
+             
+               
+                  
+             <?php 
+              
+              if(isset($_SESSION["name"]))
+              {   
+                   
+                  echo "<span><i class='bi bi-basket px-3'></i></span>";
+                    echo  "<span> <a href='logout.php'><i  class='bi bi-box-arrow-right px-3'></i></a></span>";
+                }  
+               
+                ?>  
             </form>
           </div>
         </div>

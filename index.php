@@ -1,3 +1,5 @@
+<?php 
+session_start();  ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,7 +16,8 @@
 </head>
   <body>
  <!-- ====================================================La navbar================================================================= -->
- <?php include 'include/nav.php'?>
+ <?php  
+ include 'include/nav.php'?>
 <!-- =================================================== PopUp de conx en cas de clic =============================================== -->
 
    <?php include 'connexion.php'?>

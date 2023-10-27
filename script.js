@@ -33,8 +33,10 @@ function closeModalRegister(){
 }
 
 function closeModal(){
+    console.log('haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
     popup.style.display = 'none';
     overlay.style.display = 'none';
+    
 }
 
 function openRegister(){
