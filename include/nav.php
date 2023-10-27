@@ -7,6 +7,7 @@ session_start();  ?>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&display=swap" rel="stylesheet"> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="styleNavbar.css">
 
 
 
@@ -59,8 +60,8 @@ session_start();  ?>
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="px-2 search " type="search" placeholder="Search" aria-label="Search">
-              <button class="btn1 me-3 px-3" type="submit">Search</button>
+              <input class="px-2 search " type="search" placeholder="Rechercher" aria-label="Search">
+              <button class="btn1 me-3 px-3" type="submit">Rechercher</button>
              
                   <span id="btnPopup"><i class="bi bi-person-fill"></i></span>
             
@@ -81,3 +82,5 @@ session_start();  ?>
           </div>
         </div>
       </nav>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+

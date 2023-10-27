@@ -21,9 +21,9 @@ label.btn {
 }
 
 .btn-outline-primary {
-    border-color: #26B4FF;
+    border-color: #ff26c2!important;
     background  : transparent;
-    color       : #26B4FF;
+    color       : #ff26af !important;
 }
 
 .btn {
@@ -109,4 +109,19 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 .light-style .account-settings-links .list-group-item {
     padding     : 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+div .mbtn1{
+    height: 35px;
+    width: 23%;
+    outline: none;
+    border: none;
+    color: white;
+    background: rgb(20, 219, 20);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn1:hover {
+    background-color: rgb(13, 172, 13);
 }

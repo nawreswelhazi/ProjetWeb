@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>My profile</title>
+    <title>Mon profil</title>
     <link rel="stylesheet" href="styleProfil.css">
-    <link rel="stylesheet" href="styleNavbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
     <?php include 'include/nav.php'?>
+
+    <?php include 'connexion.php'?>
 
     
     <div class="container light-style flex-grow-1 container-p-y">
@@ -26,13 +28,9 @@
                         <a class="list-group-item list-group-item-action active" data-toggle="list"
                             href="#account-general">General</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Change password</a>
+                            href="#account-change-password">Mot de passe</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-info">Info</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-social-links">Social links</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-connections">Connections</a>
+                            href="#account-info">Commandes</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-notifications">Notifications</a>
                     </div>
@@ -45,34 +43,54 @@
                                     class="d-block ui-w-80">
                                 <div class="media-body ml-4">
                                     <label class="btn btn-outline-primary">
-                                        Upload new photo
+                                        Mettre à jour
                                         <input type="file" class="account-settings-fileinput">
                                     </label> &nbsp;
-                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                    <button type="button" class="btn btn-default md-btn-flat">Réinitialiser</button>
                                     <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                                 </div>
                             </div>
                             <hr class="border-light m-0">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label class="form-label">Username</label>
+                                    <label class="form-label">Numéro client</label>
                                     <input type="text" class="form-control mb-1" value="nmaxwell">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Name</label>
+                                    <label class="form-label">Nom de famille</label>
                                     <input type="text" class="form-control" value="Nelle Maxwell">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">E-mail</label>
+                                    <label class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" value="Nelle Maxwell">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Anniversaire</label>
+                                    <input type="text" class="form-control" value="May 3, 1995">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Pays</label>
+                                    <select class="custom-select">
+                                        <option>Belgique</option>
+                                        <option selected>Suisse</option>
+                                        <option>Italie</option>
+                                        <option>Allemagne</option>
+                                        <option>France</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Contacts</h6>
+                                <label class="form-label">E-mail</label>
                                     <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
                                     <div class="alert alert-warning mt-3">
                                         Your email is not confirmed. Please check your inbox.<br>
                                         <a href="javascript:void(0)">Resend confirmation</a>
                                     </div>
-                                </div>
                                 <div class="form-group">
-                                    <label class="form-label">Company</label>
-                                    <input type="text" class="form-control" value="Company Ltd.">
+                                    <label class="form-label">Numéro de téléphone</label>
+                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
                                 </div>
                             </div>
                         </div>
@@ -253,14 +271,16 @@
             </div>
         </div>
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
+            <button type="button" class="btn btn-primary ">Sauvegarder</button> &nbsp;
             <button type="button" class="btn btn-default">Cancel</button>
         </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script type="text/javascript">
+    <script src="script.js"></script>
 
     </script>
 </body>
