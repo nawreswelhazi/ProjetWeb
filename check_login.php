@@ -40,7 +40,8 @@ if(isset($_POST["email"]))
     $output = '
     <div id="alert" class="alert show">
       <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
-      <span class="msg">   Mot de passe incorrect  </span>';
+      <span class="msg">   Mot de passe incorrect  </span>
+      </div>';
    }
   }
  }
@@ -50,7 +51,8 @@ if(isset($_POST["email"]))
   $output = '
   <div id="alert" class="alert show">
     <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
-    <span class="msg">    Ce mail n`existe pas   </span>';
+    <span class="msg">    Ce mail n`existe pas   </span>
+    </div>';
  }
 
  echo $output;

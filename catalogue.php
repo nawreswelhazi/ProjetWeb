@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Légumes</title>
+    <title>Catalogue</title>
 </head>
 <body>
 <?php include 'include/nav.php'?>
@@ -18,11 +18,12 @@
             <div class="col-md-3"> 
 				<div class="list-group">
                     <br>
-					<h3>Prix</h3>
-					<input type="hidden" id="hidden_minimum_price" value="3" />
+                    <h3>Prix</h3>
+                    <input type="hidden" id="hidden_minimum_price" value="3" />
                     <input type="hidden" id="hidden_maximum_price" value="100" />
                     <p id="price_show" style="color:black">3 - 100</p>
-                    <div id="price_range" style="color:black"></div>
+                    <div id="price_range" style="color:black" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                    </div>
                     <br>
                 </div>		
                 <div class="list-group">
