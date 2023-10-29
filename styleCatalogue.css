@@ -1,0 +1,22 @@
+a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: rgb(20, 219, 20) !important; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.disponible{
+    color: rgb(96, 199, 96);
+}
+
+.rupture{
+    color: red;
+}
+
+.Peudisponible{
+    color: orange;
+}

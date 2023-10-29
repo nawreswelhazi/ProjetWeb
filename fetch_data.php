@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="./styleCatalogue.css">
 <?php
 
 //fetch_data.php
@@ -25,6 +26,18 @@ if(isset($_POST["action"]))
 	$result=mysqli_query($con,$query);
             
 	$total_row = mysqli_num_rows($result);
+
+    function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
+
+    debug_to_console($total_row);
+
+    
     $output = ''; // Initialisez la variable $output en dehors de la boucle
     $count = 0; // Initialisez un compteur
 	if($total_row)
@@ -50,7 +63,9 @@ if(isset($_POST["action"]))
                             }
                         $output .='</div>
                         <img src="./images/products/'.$row['imageP'].'" class="img-fluid pb-3" alt="">
+                        <a href="detailsProduit.php?id='.$row['urlP'].'">
                         <h4 class="head1">'.$row['nom'].'</h4>
+                        </a>
                         <p class="per1">1 x '.$row['Qteunite'].$row['unite'].'</p>
                         <h4 class="head1">'.$row['prix'].' euros</h4>
                         <button class="btnc my-4">Ajouter  au panier</button>

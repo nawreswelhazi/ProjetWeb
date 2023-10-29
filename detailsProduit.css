@@ -1,0 +1,28 @@
+.product{
+    background: green;
+    width: 120px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.price{
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+#AddPanier{
+    height: 35px;
+    width: 23%;
+    outline: none;
+    border: none;
+    color: white;
+    background: rgb(20, 219, 20);
+    border-radius: 10px;
+    transition: all 0.4s;
+}
+
+#AddPanier:hover {
+    background-color: rgb(13, 172, 13);
+}
