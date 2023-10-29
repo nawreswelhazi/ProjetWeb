@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php include 'include/nav.php'?>
-<?php include 'include/utils.php'?>
+
 <?php include 'connexion.php'?>
 
 

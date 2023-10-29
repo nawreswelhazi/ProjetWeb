@@ -145,10 +145,15 @@
                
             
             $('#error_message_register').html(data);
+           
             }
             else
-            {
-                $('#sucess_message_register').html(data);
+            {   
+                
+                $('#sucess_message_register').html(data);                
+                
+
+
                
                 
     
