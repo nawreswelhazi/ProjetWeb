@@ -51,9 +51,12 @@ const alertElement = document.getElementById('alert');
 inputMail = document.getElementById('email');
 inputPassword = document.getElementById('password');
 var btnConnecter= document.getElementById('submit');
+var  btnresgister= document.getElementById('btnInscription');
+
 
 // Retirez la classe 'hidden' après 3000 millisecondes (3 secondes)
 btnConnecter.addEventListener('click', ViderChamps());
+// btnresgister.addEventListener('click', ViderChamps());
 
 function ViderChamps(){
     inputMail.value = "";

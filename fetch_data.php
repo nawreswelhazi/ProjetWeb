@@ -53,7 +53,7 @@ if(isset($_POST["action"]))
                         <h4 class="head1">'.$row['nom'].'</h4>
                         <p class="per1">1 x '.$row['Qteunite'].$row['unite'].'</p>
                         <h4 class="head1">'.$row['prix'].' euros</h4>
-                        <button class="btnc my-4">Ajouter au panier</button>
+                        <button class="btnc my-4">Ajouter  au panier</button>
                     </div>
                 </div>
             </div>';

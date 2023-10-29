@@ -13,7 +13,7 @@ if(isset($_POST["email"]))
  $confPassword = $_POST["confPassword"];
  $email=$_POST["email"];
  $dateNaissance=$_POST["dateNaissance"];
- $user = mysqli_query($connect , "SELECT * FROM client WHERE nom = '$nom'and prenom='$prenom' and email='$email'");
+ $user = mysqli_query($connect , "SELECT * FROM client WHERE  email='$email'");
  $output = '';
  if(empty($nom) || empty($prenom) || empty($password)||empty($email)||empty($dateNaissance)||empty($confPassword)){
     $output =  '<div id="alert" class="alert show">
@@ -31,9 +31,9 @@ if(isset($_POST["email"]))
   }else{
     $query = "INSERT INTO client (email,password,nom,prenom,dateNaissance) VALUES('$email','$password','$nom', '$prenom','$dateNaissance')";
   mysqli_query($connect, $query);
-  $output ='<div id="alert" class="alert show">
-    <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
-    <span class="msg">  Registration Successful </span>';
+  $output ='<div id="success" class="success show">
+  <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
+    <span class="msg">Inscription réussi </span>';
 }
 }
 echo $output; 
