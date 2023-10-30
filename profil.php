@@ -18,6 +18,38 @@
 
   
 
+    <?php
+    function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+        $output = implode(',', $output);
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";}
+
+        
+
+
+        $userId = $_SESSION["id"];
+        $get_user = "select * from client where id='$userId'";
+        $run_user = mysqli_query($con,$get_user);
+        $check_user = mysqli_num_rows($run_user);
+        if($check_user == 0){ 
+            echo "<script> window.open('index.php','_self') </script>";
+        }
+        else{
+            //gathering info about product in variables
+            $row_user = mysqli_fetch_array($run_user);
+            $user_mail=$row_user['email'];
+            $user_nom=$row_user['nom'];
+            $user_prenom=$row_user['prenom'];
+            $user_dateNaissance=$row_user['dateNaissance'];
+            $user_adresse=$row_user['adresse'];
+            $user_num=$row_user['nrTelph'];
+            $user_pays=$row_user['Pays'];
+        }
+            
+        
+    ?>
+
     
 
 
@@ -61,24 +93,25 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nom de famille</label>
-                                    <input type="text" class="form-control" value="Nelle Maxwell">
+                                    <input id="nomC" type="text" class="form-control" value="<?php echo $user_nom; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Prénom</label>
-                                    <input type="text" class="form-control" value="Nelle Maxwell">
+                                    <input type="text" class="form-control" value="<?php echo $user_prenom; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Anniversaire</label>
-                                    <input type="text" class="form-control" value="May 3, 1995">
+                                    <input type="text" class="form-control" value="<?php echo $user_dateNaissance; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Pays</label>
-                                    <select class="custom-select">
-                                        <option>Belgique</option>
-                                        <option selected>Suisse</option>
-                                        <option>Italie</option>
-                                        <option>Allemagne</option>
-                                        <option>France</option>
+                                    <select class="custom-select" value="<?php echo $user_pays; ?>">
+                                        <option <?php if ($user_pays == "Belgique") echo "selected"; ?>></option>
+                                        <option value="Belgique" <?php if ($user_pays == "Belgique") echo "selected"; ?>>Belgique</option>
+                                        <option value="Suisse" <?php if ($user_pays == "Suisse") echo "selected"; ?>>Suisse</option>
+                                        <option value="Italie" <?php if ($user_pays == "Italie") echo "selected"; ?>>Italie</option>
+                                        <option value="Allemagne" <?php if ($user_pays == "Allemagne") echo "selected"; ?>>Allemagne</option>
+                                        <option value="France" <?php if ($user_pays == "France") echo "selected"; ?>>France</option>
                                     </select>
                                 </div>
                             </div>
@@ -86,17 +119,20 @@
                             <div class="card-body pb-2">
                                 <h6 class="mb-4">Contacts</h6>
                                 <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
+                                    <input type="text" class="form-control mb-1" value="<?php echo $user_mail; ?>">
                                     <div class="alert alert-warning mt-3">
                                         Your email is not confirmed. Please check your inbox.<br>
                                         <a href="javascript:void(0)">Resend confirmation</a>
                                     </div>
                                 <div class="form-group">
                                     <label class="form-label">Numéro de téléphone</label>
-                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
+                                    <input type="text" class="form-control" value="<?php echo $user_num; ?>">
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">
                                 <div class="form-group">

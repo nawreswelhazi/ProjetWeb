@@ -29,7 +29,7 @@ if(isset($_POST["email"]))
 
    if($_POST["password"]==$row["password"])
    {
-   
+    $_SESSION["id"] = $row["id"];
     $_SESSION["name"] = $row["prenom"];
     $output = '<h1>Succes</h1>';
     
