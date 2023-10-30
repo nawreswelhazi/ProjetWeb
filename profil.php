@@ -16,7 +16,11 @@
 
     <?php include 'connexion.php'?>
 
+  
+
     
+
+
     <div class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-4 mb-3">
             Account settings
@@ -42,7 +46,7 @@
                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
                                     class="d-block ui-w-80">
                                 <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary">
+                                    <label class="btn btn-outline-primary" id='maj'>
                                         Mettre à jour
                                         <input type="file" class="account-settings-fileinput">
                                     </label> &nbsp;
@@ -270,7 +274,7 @@
             </div>
         </div>
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary ">Sauvegarder</button> &nbsp;
+            <button type="button" class="btn btn-primary " id="sauvegarder">Sauvegarder</button> &nbsp;
             <button type="button" class="btn btn-default">Cancel</button>
         </div>
     </div>

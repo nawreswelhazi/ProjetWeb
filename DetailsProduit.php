@@ -96,8 +96,18 @@
                             <input name="product_qty" type="number" style="max-width:150px;" >   
                         </div>
                         <p class=" buttons" ><!-- text-center buttons Starts -->
-                            <button id="AddPanier" class="btn btn-primary" type="submit" name="add_cart">
-                            <i class="bi bi-cart3"></i> Ajouter au panier </button>
+                        <?php
+                            if ($pro_qte == 0)
+                            {
+                                echo '<button id="AddPanier" class="btn btn-primary" type="submit" name="add_cart" disabled>
+                                <i class="bi bi-cart3"></i> Ajouter au panier </button>';
+                            }
+                            else
+                            echo '<button id="AddPanier" class="btn btn-primary" type="submit" name="add_cart">
+                            <i class="bi bi-cart3"></i> Ajouter au panier </button>';
+                        ?>
+                        
+                            
                         </p>
                     </form>
 
