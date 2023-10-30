@@ -47,6 +47,7 @@
             $user_num=$row_user['nrTelph'];
             $user_pays=$row_user['Pays'];
             $user_image=$row_user['photo'];
+            $user_currentMDP=$row_user['password'];
         }
             
         
@@ -63,9 +64,9 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                        <a  id="ongletGeneral" class="list-group-item list-group-item-action active" data-toggle="list"
                             href="#account-general">General</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                        <a id="ongletMDP" class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-change-password">Mot de passe</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-info">Commandes</a>
@@ -168,16 +169,16 @@
                         <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">
                                 <div class="form-group">
-                                    <label class="form-label">Current password</label>
-                                    <input type="password" class="form-control">
+                                    <label class="form-label">Mot de passe actuel</label>
+                                    <input id="mdpAP"  type="password" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">New password</label>
-                                    <input type="password" class="form-control">
+                                    <label class="form-label">Nouveau mot de passe</label>
+                                    <input id="mdpNP" type="password" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Repeat new password</label>
-                                    <input type="password" class="form-control">
+                                    <label class="form-label">Resaisir le nouveau mot de passe</label>
+                                    <input id="mdpN2P" type="password" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -351,26 +352,67 @@
             $(document).ready(function(){
                 $(document).on('click', 'button[data-role=update]', function(){
                     var id = $(this).data('id');
-                    var nom = document.getElementById("nomP").value;
-                    var prenom = document.getElementById("prenomP").value;
-                    var anniversaire = document.getElementById("annivP").value;
-                    console.log(anniversaire, "weey");
-                    var mail = document.getElementById("mailP").value;
-                    var num = document.getElementById("numP").value;
-                    var pays = document.getElementById("paysP").value;
-                    var image = document.getElementById("userImage").getAttribute('src');
-                    
-                    if (nom !== "" && prenom !== "" && anniversaire !== "" && mail !== ""){
-                    $.ajax({
-                        url : 'modifProfil.php',
-                        method : 'post',
-                        data : {nom:nom, prenom: prenom, anniversaire: anniversaire, mail:mail, num:num, pays:pays,image:image, id: id},
-                        success : function(response){
-                            Swal.fire('Mise à jour réussie', '', 'success');
-                            console.log(response);
-                        }
+                    var general = document.getElementById('ongletGeneral');
+                    var mdp = document.getElementById('ongletMDP');
+                    if (general.classList.contains('active')){
+                        var nom = document.getElementById("nomP").value;
+                        var prenom = document.getElementById("prenomP").value;
+                        var anniversaire = document.getElementById("annivP").value;
+                        console.log(anniversaire, "weey");
+                        var mail = document.getElementById("mailP").value;
+                        var num = document.getElementById("numP").value;
+                        var pays = document.getElementById("paysP").value;
+                        var image = document.getElementById("userImage").getAttribute('src');
+                        
+                        if (nom !== "" && prenom !== "" && anniversaire !== "" && mail !== ""){
+                        $.ajax({
+                            url : 'modifProfil.php',
+                            method : 'post',
+                            data : {nom:nom, prenom: prenom, anniversaire: anniversaire, mail:mail, num:num, pays:pays,image:image, id: id},
+                            success : function(response){
+                                Swal.fire('Mise à jour réussie', '', 'success');
+                                console.log(response);
+                            }   
 
-                    });}
+                        });}
+                        else {
+                            Swal.fire('Vérifiez vos données', '', 'failure');
+                        }
+                    }
+                    else if (mdp.classList.contains('active')){
+                        var mdpActuel = document.getElementById("mdpAP").value;
+                        var mdpNouv = document.getElementById("mdpNP").value;
+                        var mdpNouv2 = document.getElementById("mdpN2P").value;
+                        var userCurrentMDP = '<?php echo $user_currentMDP; ?>';
+                        if (mdpActuel !== "" && mdpNouv !== "" && mdpNouv2 !== "")
+                        {
+                            if (userCurrentMDP === mdpActuel)
+                            {
+                                if (mdpNouv === mdpNouv2)
+                                {
+                                    $.ajax({
+                                    url : 'modifPassword.php',
+                                    method : 'post',
+                                    data : {mdpNouv:mdpNouv, id: id},
+                                    success : function(response){
+                                        Swal.fire('Mot de passe modifé', '', 'success');
+                                        console.log(response);
+                                        }   
+                                    });
+                                }
+                                else {
+                                    Swal.fire('saisie incorrecte', '', 'failure');
+                                }
+                            }
+                            else 
+                            {
+                                Swal.fire('Ancien mot de passe incorrect', '', 'failure');
+                            }
+                        }
+                        else {
+                            Swal.fire('Des champs requis sont vides', '', 'failure');
+                        }
+                    }
                 })
             });
         </script>
