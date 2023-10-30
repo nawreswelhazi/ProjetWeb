@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Mon profil</title>
     <link rel="stylesheet" href="styleProfil.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -45,6 +46,7 @@
             $user_adresse=$row_user['adresse'];
             $user_num=$row_user['nrTelph'];
             $user_pays=$row_user['Pays'];
+            $user_image=$row_user['photo'];
         }
             
         
@@ -75,16 +77,46 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
                             <div class="card-body media align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                    class="d-block ui-w-80">
+                                <?php
+                                    $cheminAvatarParDefaut = "https://bootdey.com/img/Content/avatar/avatar1.png";
+
+                                    // Vérifiez si le champ photo du client est vide
+                                    if ($user_image === "") {
+                                        // Si le champ est vide, affichez l'avatar par défaut
+                                        echo '<img id="userImage" src="' . $cheminAvatarParDefaut . '" alt class="d-block ui-w-80">';
+                                    } else {
+                                        // Sinon, affichez la photo du client
+                                        echo '<img id="userImage" src="' . $user_image . '" alt class="d-block ui-w-80">';
+                                    }
+                                ?>
                                 <div class="media-body ml-4">
                                     <label class="btn btn-outline-primary" id='maj'>
                                         Mettre à jour
-                                        <input type="file" class="account-settings-fileinput">
+                                        <input type="file" id="imagePInput" class="account-settings-fileinput" accept="image/*">
                                     </label> &nbsp;
                                     <button type="button" class="btn btn-default md-btn-flat">Réinitialiser</button>
                                     <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                                 </div>
+                                <script>
+                                    $(document).ready(function() {
+                                    // Lorsque le champ de fichier est modifié
+                                    $('#imagePInput').on('change', function() {
+                                        // Obtenez le fichier sélectionné
+                                        var file = this.files[0];
+                                        console.log(file);
+                                        console.log(file['name']);
+                                        
+                                        if (file) {
+                                            // Créez un objet URL pour le fichier
+                                            var imageUrl = URL.createObjectURL(file);
+                                            console.log(imageUrl);
+                                            
+                                            // Mettez à jour l'attribut "src" de l'image avec l'URL du fichier
+                                            $('#userImage').attr('src', imageUrl);
+                                        }
+                                    });
+                                });
+                                </script>
                             </div>
                             <hr class="border-light m-0">
                             <div class="card-body">
@@ -93,19 +125,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nom de famille</label>
-                                    <input id="nomC" type="text" class="form-control" value="<?php echo $user_nom; ?>">
+                                    <input data-target="Nom" id="nomP" type="text" class="form-control" name="userNom" value="<?php echo $user_nom; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Prénom</label>
-                                    <input type="text" class="form-control" value="<?php echo $user_prenom; ?>">
+                                    <input type="text" id="prenomP" class="form-control" value="<?php echo $user_prenom; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Anniversaire</label>
-                                    <input type="text" class="form-control" value="<?php echo $user_dateNaissance; ?>">
+                                    <input type="date" id="annivP" class="form-control" value="<?php echo $user_dateNaissance; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Pays</label>
-                                    <select class="custom-select" value="<?php echo $user_pays; ?>">
+                                    <select id="paysP" class="custom-select" value="<?php echo $user_pays; ?>">
                                         <option <?php if ($user_pays == "Belgique") echo "selected"; ?>></option>
                                         <option value="Belgique" <?php if ($user_pays == "Belgique") echo "selected"; ?>>Belgique</option>
                                         <option value="Suisse" <?php if ($user_pays == "Suisse") echo "selected"; ?>>Suisse</option>
@@ -119,14 +151,14 @@
                             <div class="card-body pb-2">
                                 <h6 class="mb-4">Contacts</h6>
                                 <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" value="<?php echo $user_mail; ?>">
+                                    <input type="email" id="mailP" class="form-control mb-1" value="<?php echo $user_mail; ?>">
                                     <div class="alert alert-warning mt-3">
                                         Your email is not confirmed. Please check your inbox.<br>
                                         <a href="javascript:void(0)">Resend confirmation</a>
                                     </div>
                                 <div class="form-group">
                                     <label class="form-label">Numéro de téléphone</label>
-                                    <input type="text" class="form-control" value="<?php echo $user_num; ?>">
+                                    <input type="tel" id="numP" class="form-control" value="<?php echo $user_num; ?>" pattern="[0-9]{10}">
                                 </div>
                             </div>
                         </div>
@@ -310,9 +342,69 @@
             </div>
         </div>
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary " id="sauvegarder">Sauvegarder</button> &nbsp;
+            <button type="submit" class="btn btn-primary " id="sauvegarder" data-role="update" data-id="<?php echo $userId; ?>">Sauvegarder</button> &nbsp;
             <button type="button" class="btn btn-default">Cancel</button>
         </div>
+
+
+        <script>
+            $(document).ready(function(){
+                $(document).on('click', 'button[data-role=update]', function(){
+                    var id = $(this).data('id');
+                    var nom = document.getElementById("nomP").value;
+                    var prenom = document.getElementById("prenomP").value;
+                    var anniversaire = document.getElementById("annivP").value;
+                    console.log(anniversaire, "weey");
+                    var mail = document.getElementById("mailP").value;
+                    var num = document.getElementById("numP").value;
+                    var pays = document.getElementById("paysP").value;
+                    var image = document.getElementById("userImage").getAttribute('src');
+                    
+                    if (nom !== "" && prenom !== "" && anniversaire !== "" && mail !== ""){
+                    $.ajax({
+                        url : 'modifProfil.php',
+                        method : 'post',
+                        data : {nom:nom, prenom: prenom, anniversaire: anniversaire, mail:mail, num:num, pays:pays,image:image, id: id},
+                        success : function(response){
+                            Swal.fire('Mise à jour réussie', '', 'success');
+                            console.log(response);
+                        }
+
+                    });}
+                })
+            });
+        </script>
+
+
+        <?php
+
+
+        /*$query="UPDATE `client` SET `nom`='$userNom' WHERE cat_id='$userId'";
+        $data=mysqli_query($conn,$query);
+
+
+       
+        if(isset($_GET['submit']))
+        {
+        $userNom=$_GET['userNom'];
+        debug_to_console($userNom);
+        
+         
+        
+        if($data)
+        {
+            echo "<script>"; 
+            echo "Swal.fire('updated sucessfuly', '', 'success')"; 
+            echo "</script>"; 
+        }
+        else {
+            echo "<script>"; 
+            echo "Swal.fire('not updated', '', 'failure')"; 
+            echo "</script>"; 
+        } 
+        }*/
+
+        ?>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
