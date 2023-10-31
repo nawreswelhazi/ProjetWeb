@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 29 oct. 2023 à 20:33
+-- Généré le : mar. 31 oct. 2023 à 16:23
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -63,15 +63,35 @@ CREATE TABLE `client` (
   `dateNaissance` date NOT NULL,
   `adresse` varchar(50) NOT NULL,
   `photo` varchar(100) NOT NULL,
-  `nrTelph` int(100) NOT NULL
+  `nrTelph` int(100) NOT NULL,
+  `Pays` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`id`, `email`, `password`, `nom`, `prenom`, `dateNaissance`, `adresse`, `photo`, `nrTelph`) VALUES
-(1, 'aya@gmail.com', 'aya', 'larif', 'aya', '2013-09-10', 'gaston defferre', '', 0);
+INSERT INTO `client` (`id`, `email`, `password`, `nom`, `prenom`, `dateNaissance`, `adresse`, `photo`, `nrTelph`, `Pays`) VALUES
+(1, 'Aya@gmail.com', 'aya', 'larif', 'Aya', '2013-09-10', 'gaston defferre', 'blob:http://localhost/1085558b-de62-4a7c-8ef8-e41a641227c8', 2222, 'Belgique'),
+(3, 'nawreswelhazi@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2009-12-06', '', '', 0, ''),
+(4, 'nawres@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2009-12-06', '', '', 0, ''),
+(5, 'aya1@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-10', '', '', 0, ''),
+(6, 'aya11@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-10', '', '', 0, ''),
+(7, 'nawress@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-18', '', '', 0, ''),
+(8, 'ayaaa@gmail.com', 'Souad&@3Kaies', 'naoures', 'naoures', '2023-09-28', '', '', 0, ''),
+(9, 'ayaaaaa@gmail.com', 'Souad&@3Kaies', 'naoures', 'naoures', '2023-09-28', '', '', 0, ''),
+(10, 'ayaaaa@gmail.com', 'Souad&@3Kaies', 'naoures', 'ouelhazi', '2023-09-27', '', '', 0, ''),
+(11, 'ayyya@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-12', '', '', 0, ''),
+(12, 'ayyyya@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-26', '', '', 0, ''),
+(13, 'aaaya@gmail.com', 'Souad&@3Kaies', 'Souad', 'ouelhazi', '2023-10-03', '', '', 0, ''),
+(14, 'ayyza@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-18', '', '', 0, ''),
+(15, 'kaiesa@gmail.com', 'Souad&@3Kaies', 'kaies', 'ouelhazi', '2023-10-11', '', '', 0, ''),
+(16, 'kaiessa@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'Kaies', '2023-10-12', '', '', 0, ''),
+(17, 'ayttta@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-19', '', '', 0, ''),
+(18, 'aytttza@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-19', '', '', 0, ''),
+(19, 'ayar@gmail.com', 'Souad&@3Kaies', 'kaies', 'naoures', '2023-10-04', '', '', 0, ''),
+(20, 'ayrrra@gmail.com', 'Souad&@3Kaies', 'aaa', 'aaa', '2023-10-24', '', '', 0, ''),
+(21, 'artttya@gmail.com', 'Souad&@3Kaies', 'kaies', 'ouelhazi', '2023-10-24', '', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -111,7 +131,8 @@ INSERT INTO `produit` (`id`, `nom`, `description`, `prix`, `quantite`, `imageP`,
 (9, 'Salade de Chene', '', 2, 150, 'saladeDeChene.webp', 'saladeDeChene', '2019-10-19', 1, 'Kg', 1, 0, 'LG000009'),
 (10, 'Tomate Scion', '', 4, 150, 'tomateScion.jpg', 'tomateScion', '2019-10-19', 1, 'Kg', 1, 0, 'LG000010'),
 (11, 'Cerise de terre', '', 7, 150, 'FCeriseDeTerre.jpg', 'FCeriseDeTerre', '2019-10-19', 1, 'Kg', 10, 0, 'FR000011'),
-(12, 'Pomme de terre', 'Variété demi-précoce, de type consommation, aux tubercules oblongs et réguliers à très réguliers, à ', 2.25, 3, 'PommeDeTerre.webp', 'PommeDeTerre', '2023-10-29', 1, 'g', 1, 4, 'LG000012');
+(12, 'Pomme de terre', 'Variété demi-précoce, de type consommation, aux tubercules oblongs et réguliers à très réguliers, à ', 2.25, 3, 'PommeDeTerre.webp', 'PommeDeTerre', '2023-10-29', 1, 'g', 1, 4, 'LG000012'),
+(13, 'Oeufs', 'OEUFS DE POULE ÉLEVÉES EN PLEIN AIR', 6, 0, 'oeuf.jpg', 'oeuf', '2023-10-30', 12, 'oeuf', 9, 3, 'AU000013');
 
 --
 -- Index pour les tables déchargées
@@ -151,13 +172,13 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Contraintes pour les tables déchargées
