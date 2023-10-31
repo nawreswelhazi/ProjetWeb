@@ -63,12 +63,12 @@ if(isset($_POST["action"]))
                             }
                         $output .='</div>
                         <img src="./images/products/'.$row['imageP'].'" class="img-fluid pb-3" alt="">
-                        <a href="detailsProduit.php?id='.$row['urlP'].'">
+                        <a class="ap" href="detailsProduit.php?id='.$row['urlP'].'">
                         <h4 class="head1">'.$row['nom'].'</h4>
                         </a>
                         <p class="per1">1 x '.$row['Qteunite'].$row['unite'].'</p>
-                        <h4 class="head1">'.$row['prix'].' euros</h4>
-                        <button  class="btnc my-4"><a style="color: white !important;" href="detailsProduit.php?id='.$row['urlP'].'">Ajouter  au panier</a></button>
+                        <h4 class="head1">'.$row['prix'].' euros</h4><button  class="btnc my-4"><a id="buttonAjout" href="detailsProduit.php?id='.$row['urlP'].' ">Ajouter  au panier</a></button>
+                        
                     </div>
                 </div>
             </div>';

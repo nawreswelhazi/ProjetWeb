@@ -28,11 +28,11 @@ session_start();  ?>
                   Aliments
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Légumes</a></li>
-                  <li><a class="dropdown-item" href="#">Fruits</a></li>
+                  <li><a class="dropdown-item" href="Legumes.php">Légumes</a></li>
+                  <li><a class="dropdown-item" href="Fruits.php">Fruits</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Fromages</a></li>
-                  <li><a class="dropdown-item" href="#">Charcuterie</a></li>
+                  <li><a class="dropdown-item" href="Fromage.php">Fromages</a></li>
+                  <li><a class="dropdown-item" href="Charcuterie.php">Charcuterie</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -40,20 +40,20 @@ session_start();  ?>
                   Liquides
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Huile</a></li>
-                  <li><a class="dropdown-item" href="#">Vinaigre</a></li>
-                  <li><a class="dropdown-item" href="#">Boissons</a></li>
+                  <li><a class="dropdown-item" href="Huile.php">Huile</a></li>
+                  <li><a class="dropdown-item" href="Vinaigre.php">Vinaigre</a></li>
+                  <li><a class="dropdown-item" href="Boissons.php">Boissons</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Desserts
+                Energetique
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Miel</a></li>
-                <li><a class="dropdown-item" href="#">Confiture</a></li>
+                <li><a class="dropdown-item" href="Miel.php">Miel</a></li>
+                <li><a class="dropdown-item" href="Confiture.php">Confiture</a></li>
                 <li><hr class="dropdown-divider"></li>  
-                <li><a class="dropdown-item" href="#">Autres</a></li>
+                <li><a class="dropdown-item" href="Autres.php">Autres</a></li>
               </ul>
             </li>
               <li class="nav-item">
@@ -82,8 +82,19 @@ session_start();  ?>
                
                 ?>  
             </form>
+            
           </div>
         </div>
-      </nav>    
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      </nav>  
+
+      <script>
+        document.addEventListener('click', function() {
+        <?php
+          if (isset($_SESSION["id"])==false) {
+            // Si la session "name" est définie, associez un gestionnaire d'événement
+            echo 'btnPopup.addEventListener("click", openModal);';
+        }
+        ?>
+    });
+</script>
 

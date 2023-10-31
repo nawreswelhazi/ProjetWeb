@@ -109,21 +109,34 @@
                           <label>Quantité </label>
                           <input name="product_qty" type="number" style="max-width:150px;" required>
                       </div>
-                       <p class=" buttons">
-                       <button id="AddPanier" class="btn btn-primary" type="submit" name="add_cart">
-                            <i class="bi bi-cart3"></i> Ajouter au panier </button>
-                            <button id="Commander" class="btn btn-primary" type="submit" name="Commander">
-                              Commander maintenant </button>
-                              </p>
-                              </form>';
+                       <p class=" buttons">';
+                       if ($pro_qte == 0)
+                       {
+                           echo '<button id="AddPanier" class="btn btn-primary" type="submit" name="add_cart" disabled>
+                           <i class="bi bi-cart3"></i> Ajouter au panier </button>
+                           <button id="Commander" class="btn btn-primary" type="submit" name="Commander" disabled>
+                           Commander maintenant </button>
+                           </p>
+                           </form>';
+                       }
+                       else{
+                       echo' <button id="AddPanier" class="btn btn-primary" type="submit" name="add_cart">
+                        <i class="bi bi-cart3"></i> Ajouter au panier </button>
+                        <button id="Commander" class="btn btn-primary" type="submit" name="Commander">
+                          Commander maintenant </button>
+                          </p>
+                          </form>';
+                       }
+                      
+                      
                      } else{
-                                echo'<p class="rupture"><b>Pour commander, vous
+                                echo'<p class="rupture"><a class="rupture" id="insc" ><b>Pour commander, vous
                                 devez être un utilisateur inscrit. Cliquez ce lien pour créer un compte et commencer vos
-                                achats ! <b></p>
-                                <a  id="Register" class="btn btn-info">inscrire</i></a>';
+                                achats ! <b></a></p>
+                              
                             
 
-                              }
+                              ';}
                               ?>
                   
                

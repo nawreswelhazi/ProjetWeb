@@ -1,3 +1,10 @@
+#insc{
+    color:brown !important;
+}
+#insc:hover{
+    color:black !important;
+}
+
 .product{
     background: green;
     width: 120px;
@@ -24,7 +31,7 @@
     border-color:rgb(20, 219, 20) !important;
 }
 
-#Commander,#Register{
+#Commander{
     height: 35px;
     width: 50%;
     outline: none;
@@ -36,7 +43,7 @@
     border-color:rgb(20, 219, 20) !important;
 
 }
-#AddPanier:hover,#Commander:hover,#Register:hover {
+#AddPanier:hover,#Commander:hover {
     /* background-color: rgb(13, 172, 13); */
     color: rgb(20, 219, 20) !important;
     background:white !important ;
