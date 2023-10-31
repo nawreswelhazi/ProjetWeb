@@ -14,15 +14,31 @@
 
 #AddPanier{
     height: 35px;
-    width: 23%;
+    width: 40%;
     outline: none;
     border: none;
-    color: white;
-    background: rgb(20, 219, 20);
+    color: white !important;
+    background: rgb(20, 219, 20) !important;
     border-radius: 10px;
     transition: all 0.4s;
+    border-color:rgb(20, 219, 20) !important;
 }
 
-#AddPanier:hover {
-    background-color: rgb(13, 172, 13);
+#Commander,#Register{
+    height: 35px;
+    width: 50%;
+    outline: none;
+    border: none;
+    color: white !important;
+    background: rgb(20, 219, 20) !important;
+    border-radius: 10px;
+    transition: all 0.4s;
+    border-color:rgb(20, 219, 20) !important;
+
+}
+#AddPanier:hover,#Commander:hover,#Register:hover {
+    /* background-color: rgb(13, 172, 13); */
+    color: rgb(20, 219, 20) !important;
+    background:white !important ;
+    border: 1px solid rgb(20, 219, 20) !important;
 }

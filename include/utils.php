@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect("localhost","root","","constructionstore");
+ include 'include/database.php';
 
 function getRealUserIp(){
     switch(true){
@@ -8,6 +8,10 @@ function getRealUserIp(){
       case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) : return $_SERVER['HTTP_X_FORWARDED_FOR'];
       default : return $_SERVER['REMOTE_ADDR'];
     }
+ }
+ function idUtilisateur(){
+    
+
  }
 
  function items(){

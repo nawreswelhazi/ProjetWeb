@@ -31,6 +31,7 @@ if(isset($_POST["email"]))
    {
    
     $_SESSION["name"] = $row["prenom"];
+    $_SESSION["id"] = $row["id"];
     $output = '<h1>Succes</h1>';
     
    }

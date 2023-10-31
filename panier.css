@@ -1,0 +1,14 @@
+ #update_button_panier ,#commande_panier,#vider_button_panier,#AddPanier{
+    color: white !important;
+    background: rgb(20, 219, 20);
+    text-align:center;
+    border-color:rgb(20, 219, 20) !important;
+}
+#update_button_panier:hover ,#commande_panier:hover,#vider_button_panier:hover,#AddPanier:hover{
+    color: rgb(20, 219, 20) !important;
+    background:white ;
+    border-color:rgb(20, 219, 20) !important ;
+}
+.pull-right{
+    text-align:center;
+}

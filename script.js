@@ -1,5 +1,6 @@
 var btnPopup = document.getElementById("btnPopup");
 var btnPopupRegister = document.getElementById("PopUpRegister");
+var btnPopupRegister1 = document.getElementById("Register");
 var btnPopupConnect2 = document.getElementById("reOpenConnect");
 var popup = document.getElementById("wrapper"); //le popup de conx
 var popupRegister = document.getElementById("wrapperRegister"); //le popup de conx
@@ -15,6 +16,7 @@ btnClose.addEventListener('click', closeModal);
 btnClose1.addEventListener('click', closeModalRegister)
 btnPopupRegister.addEventListener('click', openRegister);
 btnPopupConnect2.addEventListener('click', openModal);
+btnPopupRegister1.addEventListener('click', openRegister);
 
 function openModal(){
     popupRegister.style.display = 'none';

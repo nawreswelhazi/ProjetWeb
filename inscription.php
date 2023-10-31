@@ -3,7 +3,7 @@
 <?php 
 if(isset($_POST["email"]))
 {
- $connect = mysqli_connect("localhost","root","","web");;
+ $connect = mysqli_connect("localhost","root","","web");
  
 
  
