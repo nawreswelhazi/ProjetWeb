@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./styleCatalogue.css">
 <?php
 
 //fetch_data.php
@@ -6,36 +5,13 @@ include('connexion.php');
 if(isset($_POST["action"]))
 {
 	$query = "
-		SELECT * FROM produit WHERE id IS NOT NULL 
-	";
-	
-	if(isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["minimum_price"]) && !empty($_POST["maximum_price"]))
-	{
-		$query .= "
-		  AND prix BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
-		";
-	}
-	if(isset($_POST["category"]))
-	{
-		$category_filter = implode("','", $_POST["category"]);
-		$query .= "
-		 AND categorieId IN('".$category_filter."')
-		";
-	}
+    SELECT * FROM produit ORDER BY classement DESC, id ASC LIMIT 6
+";
+    //"SELECT * FROM produit ORDER BY classement DESC, id ASC LIMIT 6";
 	
 	$result=mysqli_query($con,$query);
             
 	$total_row = mysqli_num_rows($result);
-
-    function debug_to_console($data) {
-        $output = $data;
-        if (is_array($output))
-            $output = implode(',', $output);
-    
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-    }
-
-    debug_to_console($total_row);
 
     
     $output = ''; // Initialisez la variable $output en dehors de la boucle
@@ -46,7 +22,7 @@ if(isset($_POST["action"]))
 		{
             if ($count % 3 === 0) {
                 // Ouverture d'une nouvelle ligne après chaque ensemble de 3 éléments
-                $output .= '<div class="row py-2" >';
+                $output .= '<div class="row">';
             }
 
             $output .= '

@@ -9,6 +9,7 @@
     <!-- bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styleCatalogue.css">
        
     
 </head>
@@ -104,118 +105,44 @@
               <p>Découvrez nos produits phares, soigneusement sélectionnés pour vous offrir une expérience organique exceptionnelle alliant la pureté de la nature et la qualité inégalée.</p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="card p-2">
-                <div class="card-body">
-                  <div class="star">
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                  </div>
-                  <img src="./imgs/orange.jpg" class="img-fluid pb-3" alt="">
-                  <h4 class="head1">Orange</h4>
-                  <p class="per1">1 x 250g / 17oz</p>
-                  <h4 class="head1">13 euros</h4>
-                  <button class="btnc my-4">Ajouter au panier</button>
+          <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br/>
+                    <ul class="list filter_data"></ul> <!-- -->
                 </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="card p-2">
-                <div class="card-body">
-                  <div class="star">
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star"></i></span>
-                    <span><i class="bi bi-star"></i></span>
-                  </div>
-                  <img src="./imgs/papaya.jpg" class="img-fluid pb-3" alt="">
-                  <h4 class="head1">Papaya</h4>
-                  <p class="per1">1 x 250g / 17oz</p>
-                  <h4 class="head1">13 euros</h4>
-                  <button class="btnc my-4">Ajouter au panier</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="card p-2">
-                <div class="card-body">
-                  <div class="star">
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star"></i></span>
-                  </div>
-                  <img src="./imgs/Pom.jpg" class="img-fluid pb-3" alt="">
-                  <h4 class="head1">Pom</h4>
-                  <p class="per1">1 x 250g / 17oz</p>
-                  <h4 class="head1">13 euros</h4>
-                  <button class="btnc my-4">Ajouter au panier</button>
-                </div>
-              </div>
             </div>
           </div>
+          
+          <script>
+            filterList = [];
+            filterList.push(1);
+            
+            function filter_data()
+            {
+              $('.filter_data').html('<div id="loading" style="" ></div>');
+              var action = 'fetch_data';
+              $.ajax({
+                  url:"BestProduct.php",
+                  method:"POST",
+                  data:{action:action, category:filterList}, //Selon le filtre du user, nous allons afficher les données
+                  success:function(data){
+                      $('.filter_data').html(data);
+                  }
+              });
+            }
 
 
-          <div class="row py-3">
-            <div class="col-lg-4">
-              <div class="card p-2">
-                <div class="card-body">
-                  <div class="star">
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                  </div>
-                  <img src="./imgs/strawnb.jpg" class="img-fluid pb-3" alt="">
-                  <h4 class="head1">Orange</h4>
-                  <p class="per1">1 x 250g / 17oz</p>
-                  <h4 class="head1">13 euros</h4>
-                  <button class="btnc my-4">Ajouter au panier</button>
-                </div>
-              </div>
-            </div>
+            $(document).ready(function(){
 
-            <div class="col-lg-4">
-              <div class="card p-2">
-                <div class="card-body">
-                  <div class="star">
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star"></i></span>
-                    <span><i class="bi bi-star"></i></span>
-                  </div>
-                  <img src="./imgs/manngo.jpg" class="img-fluid pb-3" alt="">
-                  <h4 class="head1">Papaya</h4>
-                  <p class="per1">1 x 250g / 17oz</p>
-                  <h4 class="head1">13 euros</h4>
-                  <button class="btnc my-4">Ajouter au panier</button>
-                </div>
-              </div>
-            </div>
+                filter_data();
+                $('.common_selector').click(function(){
+                    filter_data();
+                });
+            });
+          </script>
 
-            <div class="col-lg-4">
-              <div class="card p-2">
-                <div class="card-body">
-                  <div class="star">
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star-fill"></i></span>
-                    <span><i class="bi bi-star"></i></span>
-                  </div>
-                  <img src="./imgs/melon.jpg" class="img-fluid pb-3" alt="">
-                  <h4 class="head1">Pom</h4>
-                  <p class="per1">1 x 250g / 17oz</p>
-                  <h4 class="head1">13 euros</h4>
-                  <button class="btnc my-4">Ajouter au panier</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="row text-center py-5">
             <div class="col-lg-6 m-auto">
               <button class="mbtn1">Voir plus</button>

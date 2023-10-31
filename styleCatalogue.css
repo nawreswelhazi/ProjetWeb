@@ -31,3 +31,9 @@ a:hover {
 .Peudisponible{
     color: orange;
 }
+
+.image-frame {
+    width: 250px;
+    height: 200px;
+    overflow: hidden; /* Pour s'assurer que les images ne dépassent pas la taille du cadre */
+}
