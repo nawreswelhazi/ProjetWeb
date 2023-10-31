@@ -109,25 +109,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <br/>
-                    <ul class="list filter_data"></ul> <!-- -->
+                    <ul class="list filter_data1"></ul> <!-- -->
                 </div>
             </div>
           </div>
           
           <script>
+            (function() {
             filterList = [];
             filterList.push(1);
             
-            function filter_data()
+            function filter_data1()
             {
-              $('.filter_data').html('<div id="loading" style="" ></div>');
+              $('.filter_data1').html('<div id="loading" style="" ></div>');
               var action = 'fetch_data';
               $.ajax({
                   url:"BestProduct.php",
                   method:"POST",
                   data:{action:action, category:filterList}, //Selon le filtre du user, nous allons afficher les données
                   success:function(data){
-                      $('.filter_data').html(data);
+                      $('.filter_data1').html(data);
                   }
               });
             }
@@ -135,11 +136,12 @@
 
             $(document).ready(function(){
 
-                filter_data();
+                filter_data1();
                 $('.common_selector').click(function(){
-                    filter_data();
+                    filter_data1();
                 });
             });
+          })();
           </script>
 
 
@@ -165,7 +167,7 @@
         </div>
       </section>
 
-<!-- ===================================================Seller========================================================== -->
+<!-- ===================================================Nouveaux produits========================================================== -->
       <section>
         <div class="seller bg-light p">
           <div class="container py-5">
@@ -174,125 +176,45 @@
                 <h1 class="py-5">Nouveaux produits</h1>
               </div>
             </div>
-            <div class="row g-2 py-2">
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img src="./imgs/lemon.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star"></i></span>
-                      <h5 class="head1">Citron frais</h5>
-                      <p class="per1">2 x 250g / 40oz</p>
-                      <h5 class="head1">14.00€</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img src="./imgs/garlic.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star"></i></span>
-                      <h5 class="head1">Citron frais</h5>
-                      <p class="per1">2 x 250g / 40oz</p>
-                      <h5 class="head1">14.00€</h5>
-                    </div>
+
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <br/>
+                      <ul class="list filter_data2"></ul> <!-- -->
                   </div>
-                </div>
               </div>
             </div>
+          
+            <script>
+              (function(){filterList = [];
+              filterList.push(1);
+              
+              function filter_data2()
+              {
+                $('.filter_data2').html('<div id="loading" style="" ></div>');
+                var action = 'NewProduct_data';
+                $.ajax({
+                    url:"NewProduct.php",
+                    method:"POST",
+                    data:{action:action, category:filterList}, //Selon le filtre du user, nous allons afficher les données
+                    success:function(data){
+                        $('.filter_data2').html(data);
+                    }
+                });
+              }
 
-            <div class="row g-2 py-2">
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img src="./imgs/raw-onions.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star"></i></span>
-                      <h5 class="head1">Citron frais</h5>
-                      <p class="per1">2 x 250g / 40oz</p>
-                      <h5 class="head1">14.00€</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img src="./imgs/mint.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star"></i></span>
-                      <h5 class="head1">Citron frais</h5>
-                      <p class="per1">2 x 250g / 40oz</p>
-                      <h5 class="head1">14.00€</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              $(document).ready(function(){
 
-            <div class="row g-2 py-2">
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img src="./imgs/gApple.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star"></i></span>
-                      <h5 class="head1">Citron frais</h5>
-                      <p class="per1">2 x 250g / 40oz</p>
-                      <h5 class="head1">14.00€</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img src="./imgs/chilli.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star-fill"></i></span>
-                      <span><i class="bi bi-star"></i></span>
-                      <h5 class="head1">Citron frais</h5>
-                      <p class="per1">2 x 250g / 40oz</p>
-                      <h5 class="head1">14.00€</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  filter_data2();
+                  $('.common_selector').click(function(){
+                      filter_data2();
+                  });
+              });
+            })();
+            </script>
           </div>
         </div>
       </section>
