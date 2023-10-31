@@ -29,11 +29,18 @@ if(isset($_POST["email"]))
     <span class="msg">   client deja existe  </span>';
     
   }else{
+    session_start();
     $query = "INSERT INTO client (email,password,nom,prenom,dateNaissance) VALUES('$email','$password','$nom', '$prenom','$dateNaissance')";
-  mysqli_query($connect, $query);
+    $result = mysqli_query($connect, $query);
+
+  $nouvel_utilisateur_id = mysqli_insert_id($connect);
+
+
   $output ='<div id="success" class="success show">
   <span class="fas fa-exclamation-circle"><i class="bi bi-dash-circle-fill"></i></span>
     <span class="msg">Inscription réussi </span>';
+    $output .= '<script>closeModalRegister();</script>';
+    $_SESSION["id"] = $nouvel_utilisateur_id;
 }
 }
 echo $output; 

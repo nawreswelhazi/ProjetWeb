@@ -12,7 +12,7 @@ var btnClose1= document.getElementById('btnClose1');
 
 //btnPopup.addEventListener('click', openModal);
 btnClose.addEventListener('click', closeModal);
-btnClose1.addEventListener('click', closeModalRegister)
+btnClose1.addEventListener('click', closeModalRegister);
 btnPopupRegister.addEventListener('click', openRegister);
 btnPopupConnect2.addEventListener('click', openModal);
 

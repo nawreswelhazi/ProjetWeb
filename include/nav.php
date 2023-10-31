@@ -66,7 +66,7 @@ session_start();  ?>
             </form>
             <?php 
               
-              if(isset($_SESSION["name"]))
+              if(isset($_SESSION["id"]))
               {
                 echo '<a class="nav-link" aria-current="page" href="profil.php"><span id="btnPopup"><i class="bi bi-person-fill"></i></span></a>';
                 echo "<span><i class='bi bi-basket px-3'></i></span>";
@@ -82,7 +82,7 @@ session_start();  ?>
       <script>
         document.addEventListener('click', function() {
         <?php
-          if (isset($_SESSION["name"])==false) {
+          if (isset($_SESSION["id"])==false) {
             // Si la session "name" est définie, associez un gestionnaire d'événement
             echo 'btnPopup.addEventListener("click", openModal);';
         }
