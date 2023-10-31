@@ -416,37 +416,6 @@
                 })
             });
         </script>
-
-
-        <?php
-
-
-        /*$query="UPDATE `client` SET `nom`='$userNom' WHERE cat_id='$userId'";
-        $data=mysqli_query($conn,$query);
-
-
-       
-        if(isset($_GET['submit']))
-        {
-        $userNom=$_GET['userNom'];
-        debug_to_console($userNom);
-        
-         
-        
-        if($data)
-        {
-            echo "<script>"; 
-            echo "Swal.fire('updated sucessfuly', '', 'success')"; 
-            echo "</script>"; 
-        }
-        else {
-            echo "<script>"; 
-            echo "Swal.fire('not updated', '', 'failure')"; 
-            echo "</script>"; 
-        } 
-        }*/
-
-        ?>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
