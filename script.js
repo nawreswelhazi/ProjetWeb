@@ -1,6 +1,5 @@
 var btnPopup = document.getElementById("btnPopup");
 var btnPopupRegister = document.getElementById("PopUpRegister");
-var btnPopupRegister1 = document.getElementById("Register");
 var btnPopupConnect2 = document.getElementById("reOpenConnect");
 var popup = document.getElementById("wrapper"); //le popup de conx
 var popupRegister = document.getElementById("wrapperRegister"); //le popup de conx
@@ -12,11 +11,10 @@ var btnClose1= document.getElementById('btnClose1');
 
 
 //btnPopup.addEventListener('click', openModal);
-btnClose.addEventListener('click', closeModal);
-btnClose1.addEventListener('click', closeModalRegister);
-btnPopupRegister.addEventListener('click', openRegister);
-btnPopupConnect2.addEventListener('click', openModal);
-btnPopupRegister1.addEventListener('click', openRegister);
+btnClose.addEventListener('click', function() {closeModal(); ViderChamps();});
+btnClose1.addEventListener('click', function () {closeModalRegister(); ViderChampsInscri();});
+btnPopupRegister.addEventListener('click', function () {openRegister(); ViderChamps();});
+btnPopupConnect2.addEventListener('click', function() {openModal(); ViderChampsInscri();});
 
 
 function openModal(){
@@ -36,7 +34,6 @@ function closeModalRegister(){
 }
 
 function closeModal(){
-    console.log('haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
     popup.style.display = 'none';
     overlay.style.display = 'none';
     
@@ -54,16 +51,33 @@ const alertElement = document.getElementById('alert');
 inputMail = document.getElementById('email');
 inputPassword = document.getElementById('password');
 var btnConnecter= document.getElementById('submit');
-var  btnresgister= document.getElementById('btnInscription');
+
 
 
 // Retirez la classe 'hidden' après 3000 millisecondes (3 secondes)
-btnConnecter.addEventListener('click', ViderChamps());
+btnConnecter.addEventListener('click', ViderChamps);
 // btnresgister.addEventListener('click', ViderChamps());
 
 function ViderChamps(){
     inputMail.value = "";
     inputPassword.value = "";
+}
+
+
+inputnom = document.getElementById('nom');
+inputPrenom = document.getElementById('prenom');
+inputBirthday = document.getElementById('birthday');
+inputmail = document.getElementById('emailProposed');
+inputPassword1 = document.getElementById('PasswordProposed');
+inputPassword2 = document.getElementById('PasswordProposed2');
+btnresgister= document.getElementById('btnInscription');
+function ViderChampsInscri(){
+    inputnom.value = "";
+    inputPrenom.value = "";
+    inputBirthday.value = "";
+    inputmail.value = "";
+    inputPassword1.value = "";
+    inputPassword2.value = "";
 }
 
 setTimeout(function() {

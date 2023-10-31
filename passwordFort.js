@@ -66,7 +66,6 @@ function activateButton() {
         console.log("aaa");
         btnInscription.disabled=false;
     } else {
-        console.log("testtt");
         btnInscription.disabled=true;
     }
 } 
