@@ -9,51 +9,56 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <?php include 'include/nav.php'?>
+    <?php include 'include/nav.php' ?>
 
-    <?php include 'connexion.php'?>
 
-  
+    <?php include 'connexion.php' ?>
+
+
+
+
 
     <?php
-    function debug_to_console($data) {
+    function debug_to_console($data)
+    {
         $output = $data;
         if (is_array($output))
-        $output = implode(',', $output);
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";}
+            $output = implode(',', $output);
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
 
-        
 
 
-        $userId = $_SESSION["id"];
-        $get_user = "select * from client where id='$userId'";
-        $run_user = mysqli_query($con,$get_user);
-        $check_user = mysqli_num_rows($run_user);
-        if($check_user == 0){ 
-            echo "<script> window.open('index.php','_self') </script>";
-        }
-        else{
-            //gathering info about product in variables
-            $row_user = mysqli_fetch_array($run_user);
-            $user_mail=$row_user['email'];
-            $user_nom=$row_user['nom'];
-            $user_prenom=$row_user['prenom'];
-            $user_dateNaissance=$row_user['dateNaissance'];
-            $user_adresse=$row_user['adresse'];
-            $user_num=$row_user['nrTelph'];
-            $user_pays=$row_user['Pays'];
-            $user_image=$row_user['photo'];
-            $user_currentMDP=$row_user['password'];
-        }
-            
-        
+
+    $userId = $_SESSION["id"];
+    $get_user = "select * from client where id='$userId'";
+    $run_user = mysqli_query($con, $get_user);
+    $check_user = mysqli_num_rows($run_user);
+    if ($check_user == 0) {
+        echo "<script> window.open('index.php','_self') </script>";
+    } else {
+        //gathering info about product in variables
+        $row_user = mysqli_fetch_array($run_user);
+        $user_mail = $row_user['email'];
+        $user_nom = $row_user['nom'];
+        $user_prenom = $row_user['prenom'];
+        $user_dateNaissance = $row_user['dateNaissance'];
+        $user_adresse = $row_user['adresse'];
+        $user_num = $row_user['nrTelph'];
+        $user_pays = $row_user['Pays'];
+        $user_image = $row_user['photo'];
+        $user_currentMDP = $row_user['password'];
+    }
+
+
     ?>
 
-    
+
 
 
     <div class="container light-style flex-grow-1 container-p-y">
@@ -64,10 +69,11 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a  id="ongletGeneral" class="list-group-item list-group-item-action active" data-toggle="list"
+                        <a id="ongletGeneral" class="list-group-item list-group-item-action active" data-toggle="list"
                             href="#account-general">General</a>
                         <a id="ongletMDP" class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-change-password">Mot de passe</a>
+
                         <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-info">Commandes</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
@@ -79,44 +85,45 @@
                         <div class="tab-pane fade active show" id="account-general">
                             <div class="card-body media align-items-center">
                                 <?php
-                                    $cheminAvatarParDefaut = "https://bootdey.com/img/Content/avatar/avatar1.png";
+                                $cheminAvatarParDefaut = "https://bootdey.com/img/Content/avatar/avatar1.png";
 
-                                    // Vérifiez si le champ photo du client est vide
-                                    if ($user_image === "") {
-                                        // Si le champ est vide, affichez l'avatar par défaut
-                                        echo '<img id="userImage" src="' . $cheminAvatarParDefaut . '" alt class="d-block ui-w-80">';
-                                    } else {
-                                        // Sinon, affichez la photo du client
-                                        echo '<img id="userImage" src="' . $user_image . '" alt class="d-block ui-w-80">';
-                                    }
+                                // Vérifiez si le champ photo du client est vide
+                                if ($user_image === "") {
+                                    // Si le champ est vide, affichez l'avatar par défaut
+                                    echo '<img id="userImage" src="' . $cheminAvatarParDefaut . '" alt class="d-block ui-w-80">';
+                                } else {
+                                    // Sinon, affichez la photo du client
+                                    echo '<img id="userImage" src="' . $user_image . '" alt class="d-block ui-w-80">';
+                                }
                                 ?>
                                 <div class="media-body ml-4">
                                     <label class="btn btn-outline-primary" id='maj'>
                                         Mettre à jour
-                                        <input type="file" id="imagePInput" class="account-settings-fileinput" accept="image/*">
+                                        <input type="file" id="imagePInput" class="account-settings-fileinput"
+                                            accept="image/*">
                                     </label> &nbsp;
                                     <button type="button" class="btn btn-default md-btn-flat">Réinitialiser</button>
                                     <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                                 </div>
                                 <script>
-                                    $(document).ready(function() {
-                                    // Lorsque le champ de fichier est modifié
-                                    $('#imagePInput').on('change', function() {
-                                        // Obtenez le fichier sélectionné
-                                        var file = this.files[0];
-                                        console.log(file);
-                                        console.log(file['name']);
-                                        
-                                        if (file) {
-                                            // Créez un objet URL pour le fichier
-                                            var imageUrl = URL.createObjectURL(file);
-                                            console.log(imageUrl);
-                                            
-                                            // Mettez à jour l'attribut "src" de l'image avec l'URL du fichier
-                                            $('#userImage').attr('src', imageUrl);
-                                        }
+                                    $(document).ready(function () {
+                                        // Lorsque le champ de fichier est modifié
+                                        $('#imagePInput').on('change', function () {
+                                            // Obtenez le fichier sélectionné
+                                            var file = this.files[0];
+                                            console.log(file);
+                                            console.log(file['name']);
+
+                                            if (file) {
+                                                // Créez un objet URL pour le fichier
+                                                var imageUrl = URL.createObjectURL(file);
+                                                console.log(imageUrl);
+
+                                                // Mettez à jour l'attribut "src" de l'image avec l'URL du fichier
+                                                $('#userImage').attr('src', imageUrl);
+                                            }
+                                        });
                                     });
-                                });
                                 </script>
                             </div>
                             <hr class="border-light m-0">
@@ -126,25 +133,38 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nom de famille</label>
-                                    <input data-target="Nom" id="nomP" type="text" class="form-control" name="userNom" value="<?php echo $user_nom; ?>">
+                                    <input data-target="Nom" id="nomP" type="text" class="form-control" name="userNom"
+                                        value="<?php echo $user_nom; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Prénom</label>
-                                    <input type="text" id="prenomP" class="form-control" value="<?php echo $user_prenom; ?>">
+                                    <input type="text" id="prenomP" class="form-control"
+                                        value="<?php echo $user_prenom; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Anniversaire</label>
-                                    <input type="date" id="annivP" class="form-control" value="<?php echo $user_dateNaissance; ?>">
+                                    <input type="date" id="annivP" class="form-control"
+                                        value="<?php echo $user_dateNaissance; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Pays</label>
                                     <select id="paysP" class="custom-select" value="<?php echo $user_pays; ?>">
-                                        <option <?php if ($user_pays == "Belgique") echo "selected"; ?>></option>
-                                        <option value="Belgique" <?php if ($user_pays == "Belgique") echo "selected"; ?>>Belgique</option>
-                                        <option value="Suisse" <?php if ($user_pays == "Suisse") echo "selected"; ?>>Suisse</option>
-                                        <option value="Italie" <?php if ($user_pays == "Italie") echo "selected"; ?>>Italie</option>
-                                        <option value="Allemagne" <?php if ($user_pays == "Allemagne") echo "selected"; ?>>Allemagne</option>
-                                        <option value="France" <?php if ($user_pays == "France") echo "selected"; ?>>France</option>
+                                        <option <?php if ($user_pays == "Belgique")
+                                            echo "selected"; ?>></option>
+                                        <option value="Belgique" <?php if ($user_pays == "Belgique")
+                                            echo "selected"; ?>>
+                                            Belgique</option>
+                                        <option value="Suisse" <?php if ($user_pays == "Suisse")
+                                            echo "selected"; ?>>
+                                            Suisse</option>
+                                        <option value="Italie" <?php if ($user_pays == "Italie")
+                                            echo "selected"; ?>>
+                                            Italie</option>
+                                        <option value="Allemagne" <?php if ($user_pays == "Allemagne")
+                                            echo "selected"; ?>>Allemagne</option>
+                                        <option value="France" <?php if ($user_pays == "France")
+                                            echo "selected"; ?>>
+                                            France</option>
                                     </select>
                                 </div>
                             </div>
@@ -152,14 +172,16 @@
                             <div class="card-body pb-2">
                                 <h6 class="mb-4">Contacts</h6>
                                 <label class="form-label">E-mail</label>
-                                    <input type="email" id="mailP" class="form-control mb-1" value="<?php echo $user_mail; ?>">
-                                    <div class="alert alert-warning mt-3">
-                                        Your email is not confirmed. Please check your inbox.<br>
-                                        <a href="javascript:void(0)">Resend confirmation</a>
-                                    </div>
+                                <input type="email" id="mailP" class="form-control mb-1"
+                                    value="<?php echo $user_mail; ?>">
+                                <div class="alert alert-warning mt-3">
+                                    Your email is not confirmed. Please check your inbox.<br>
+                                    <a href="javascript:void(0)">Resend confirmation</a>
+                                </div>
                                 <div class="form-group">
                                     <label class="form-label">Numéro de téléphone</label>
-                                    <input type="tel" id="numP" class="form-control" value="<?php echo $user_num; ?>" pattern="[0-9]{10}">
+                                    <input type="tel" id="numP" class="form-control" value="<?php echo $user_num; ?>"
+                                        pattern="[0-9]{10}">
                                 </div>
                             </div>
                         </div>
@@ -170,7 +192,7 @@
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Mot de passe actuel</label>
-                                    <input id="mdpAP"  type="password" class="form-control">
+                                    <input id="mdpAP" type="password" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nouveau mot de passe</label>
@@ -182,39 +204,50 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="tab-pane fade" id="account-info">
                             <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Bio</label>
-                                    <textarea class="form-control"
-                                        rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Birthday</label>
-                                    <input type="text" class="form-control" value="May 3, 1995">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="custom-select">
-                                        <option>USA</option>
-                                        <option selected>Canada</option>
-                                        <option>UK</option>
-                                        <option>Germany</option>
-                                        <option>France</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Contacts</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
+                                <h5 class="mb-4">Commandes Précédentes</h5>
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>Date</th>
+
+                                            <th>Opérations</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $get_commandes = "SELECT commande.* FROM commande where commande.id_client = $userId ORDER BY commande.date DESC limit 20";
+                                        $run_commandes = mysqli_query($con, $get_commandes);
+                                        $i = 1;
+                                        while ($commande = mysqli_fetch_array($run_commandes)) {
+
+                                            ?>
+                                            <tr>
+                                               
+                                                <td id="commande_id">
+                                               
+                                                    <?php echo $commande['id'];
+                                                     ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $commande['date'] ?>
+                                                </td>
+
+
+
+                                                <td><a id="details" class="btn btn-outline-dark view_commande"
+                                                      href="#" >détails</a></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="account-social-links">
@@ -343,18 +376,19 @@
             </div>
         </div>
         <div class="text-right mt-3">
-            <button type="submit" class="btn btn-primary " id="sauvegarder" data-role="update" data-id="<?php echo $userId; ?>">Sauvegarder</button> &nbsp;
+            <button type="submit" class="btn btn-primary " id="sauvegarder" data-role="update"
+                data-id="<?php echo $userId; ?>">Sauvegarder</button> &nbsp;
             <button type="button" class="btn btn-default">Cancel</button>
         </div>
 
 
         <script>
-            $(document).ready(function(){
-                $(document).on('click', 'button[data-role=update]', function(){
+            $(document).ready(function () {
+                $(document).on('click', 'button[data-role=update]', function () {
                     var id = $(this).data('id');
                     var general = document.getElementById('ongletGeneral');
                     var mdp = document.getElementById('ongletMDP');
-                    if (general.classList.contains('active')){
+                    if (general.classList.contains('active')) {
                         var nom = document.getElementById("nomP").value;
                         var prenom = document.getElementById("prenomP").value;
                         var anniversaire = document.getElementById("annivP").value;
@@ -363,49 +397,46 @@
                         var num = document.getElementById("numP").value;
                         var pays = document.getElementById("paysP").value;
                         var image = document.getElementById("userImage").getAttribute('src');
-                        
-                        if (nom !== "" && prenom !== "" && anniversaire !== "" && mail !== ""){
-                        $.ajax({
-                            url : 'modifProfil.php',
-                            method : 'post',
-                            data : {nom:nom, prenom: prenom, anniversaire: anniversaire, mail:mail, num:num, pays:pays,image:image, id: id},
-                            success : function(response){
-                                Swal.fire('Mise à jour réussie', '', 'success');
-                                console.log(response);
-                            }   
 
-                        });}
+                        if (nom !== "" && prenom !== "" && anniversaire !== "" && mail !== "") {
+                            $.ajax({
+                                url: 'modifProfil.php',
+                                method: 'post',
+                                data: { nom: nom, prenom: prenom, anniversaire: anniversaire, mail: mail, num: num, pays: pays, image: image, id: id },
+                                success: function (response) {
+                                    Swal.fire('Mise à jour réussie', '', 'success');
+                                    console.log(response);
+                                }
+
+                            });
+                        }
                         else {
                             Swal.fire('Vérifiez vos données', '', 'failure');
                         }
                     }
-                    else if (mdp.classList.contains('active')){
+                    else if (mdp.classList.contains('active')) {
                         var mdpActuel = document.getElementById("mdpAP").value;
                         var mdpNouv = document.getElementById("mdpNP").value;
                         var mdpNouv2 = document.getElementById("mdpN2P").value;
                         var userCurrentMDP = '<?php echo $user_currentMDP; ?>';
-                        if (mdpActuel !== "" && mdpNouv !== "" && mdpNouv2 !== "")
-                        {
-                            if (userCurrentMDP === mdpActuel)
-                            {
-                                if (mdpNouv === mdpNouv2)
-                                {
+                        if (mdpActuel !== "" && mdpNouv !== "" && mdpNouv2 !== "") {
+                            if (userCurrentMDP === mdpActuel) {
+                                if (mdpNouv === mdpNouv2) {
                                     $.ajax({
-                                    url : 'modifPassword.php',
-                                    method : 'post',
-                                    data : {mdpNouv:mdpNouv, id: id},
-                                    success : function(response){
-                                        Swal.fire('Mot de passe modifé', '', 'success');
-                                        console.log(response);
-                                        }   
+                                        url: 'modifPassword.php',
+                                        method: 'post',
+                                        data: { mdpNouv: mdpNouv, id: id },
+                                        success: function (response) {
+                                            Swal.fire('Mot de passe modifé', '', 'success');
+                                            console.log(response);
+                                        }
                                     });
                                 }
                                 else {
                                     Swal.fire('saisie incorrecte', '', 'failure');
                                 }
                             }
-                            else 
-                            {
+                            else {
                                 Swal.fire('Ancien mot de passe incorrect', '', 'failure');
                             }
                         }
@@ -420,9 +451,30 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script type="text/javascript"></script>
     <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Vérifiez si l'URL contient l'ancre #account-info
+            if (window.location.hash === "#account-info") {
+                // Activez l'onglet "Commandes"
+                $('a[href="#account-info"]').tab('show');
+            }
+        });
+        $(document).ready(function () {
+            $('.view_commande').click(function (e) {
+                e.preventDefault();
+                // var commande_id = $('#commande_id').text();
+                // console.log(commande_id);
+            });
+       
+
+    })
+
+        
+    </script>
 </body>
 
 </html>
