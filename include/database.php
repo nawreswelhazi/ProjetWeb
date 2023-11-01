@@ -1,3 +1,4 @@
 <?php
-$con = mysqli_connect("localhost","root","","web")
+$con = mysqli_connect("localhost","root","","web");
+
 ?>

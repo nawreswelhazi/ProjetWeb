@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 31 oct. 2023 à 16:23
+-- Généré le : mer. 01 nov. 2023 à 17:48
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -72,7 +72,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id`, `email`, `password`, `nom`, `prenom`, `dateNaissance`, `adresse`, `photo`, `nrTelph`, `Pays`) VALUES
-(1, 'Aya@gmail.com', 'aya', 'larif', 'Aya', '2013-09-10', 'gaston defferre', 'blob:http://localhost/1085558b-de62-4a7c-8ef8-e41a641227c8', 2222, 'Belgique'),
+(1, 'Aya@gmail.com', 'aya', 'larif', 'Aya', '2013-09-10', 'gaston defferre', 'blob:http://localhost/787ab324-132a-4aca-932b-093d480d9606', 2222, 'Belgique'),
 (3, 'nawreswelhazi@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2009-12-06', '', '', 0, ''),
 (4, 'nawres@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2009-12-06', '', '', 0, ''),
 (5, 'aya1@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-10', '', '', 0, ''),
@@ -92,6 +92,61 @@ INSERT INTO `client` (`id`, `email`, `password`, `nom`, `prenom`, `dateNaissance
 (19, 'ayar@gmail.com', 'Souad&@3Kaies', 'kaies', 'naoures', '2023-10-04', '', '', 0, ''),
 (20, 'ayrrra@gmail.com', 'Souad&@3Kaies', 'aaa', 'aaa', '2023-10-24', '', '', 0, ''),
 (21, 'artttya@gmail.com', 'Souad&@3Kaies', 'kaies', 'ouelhazi', '2023-10-24', '', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande`
+--
+
+CREATE TABLE `commande` (
+  `id` int(10) NOT NULL,
+  `id_client` int(10) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `totalPrix` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id`, `id_client`, `date`, `totalPrix`) VALUES
+(4, 1, '2023-11-01 03:22:53', 51.25),
+(5, 1, '2023-11-01 03:26:40', 20),
+(6, 1, '2023-11-01 05:09:29', 6),
+(7, 1, '2023-11-01 05:22:24', 14),
+(8, 1, '2023-11-01 05:37:18', 10),
+(9, 1, '2023-11-01 05:38:39', 30),
+(10, 3, '2023-11-01 06:25:50', 30);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `lignecommande`
+--
+
+CREATE TABLE `lignecommande` (
+  `id` int(11) NOT NULL,
+  `id_produit` int(11) NOT NULL,
+  `id_commande` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `totalprix` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `lignecommande`
+--
+
+INSERT INTO `lignecommande` (`id`, `id_produit`, `id_commande`, `quantite`, `totalprix`) VALUES
+(7, 5, 4, 2, 10),
+(8, 6, 4, 5, 30),
+(9, 12, 4, 5, 11.25),
+(10, 5, 5, 4, 20),
+(11, 4, 6, 2, 6),
+(12, 7, 7, 7, 14),
+(13, 7, 8, 5, 10),
+(14, 4, 9, 10, 30),
+(15, 8, 10, 10, 30);
 
 -- --------------------------------------------------------
 
@@ -151,6 +206,21 @@ ALTER TABLE `client`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_client` (`id_client`);
+
+--
+-- Index pour la table `lignecommande`
+--
+ALTER TABLE `lignecommande`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_produit` (`id_produit`),
+  ADD KEY `id_commande` (`id_commande`);
+
+--
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
@@ -175,6 +245,18 @@ ALTER TABLE `client`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT pour la table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pour la table `lignecommande`
+--
+ALTER TABLE `lignecommande`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
@@ -183,6 +265,19 @@ ALTER TABLE `produit`
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `lignecommande`
+--
+ALTER TABLE `lignecommande`
+  ADD CONSTRAINT `lignecommande_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `lignecommande_ibfk_2` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `produit`
