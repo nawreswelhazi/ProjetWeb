@@ -55,7 +55,7 @@ var btnConnecter= document.getElementById('submit');
 
 
 // Retirez la classe 'hidden' après 3000 millisecondes (3 secondes)
-btnConnecter.addEventListener('click', ViderChamps);
+//btnConnecter.addEventListener('click', ViderChamps);
 // btnresgister.addEventListener('click', ViderChamps());
 
 function ViderChamps(){
@@ -67,7 +67,7 @@ function ViderChamps(){
 inputnom = document.getElementById('nom');
 inputPrenom = document.getElementById('prenom');
 inputBirthday = document.getElementById('birthday');
-inputmail = document.getElementById('emailProposed');
+inputmail1 = document.getElementById('emailProposed');
 inputPassword1 = document.getElementById('PasswordProposed');
 inputPassword2 = document.getElementById('PasswordProposed2');
 btnresgister= document.getElementById('btnInscription');
@@ -75,7 +75,7 @@ function ViderChampsInscri(){
     inputnom.value = "";
     inputPrenom.value = "";
     inputBirthday.value = "";
-    inputmail.value = "";
+    inputmail1.value = "";
     inputPassword1.value = "";
     inputPassword2.value = "";
 }
