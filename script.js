@@ -42,6 +42,7 @@ function closeModal(){
 function openRegister(){
     popup.style.display = 'none';
     popupRegister.style.display = 'block';
+    overlay.style.display = 'block';
     popupRegister.style.width = '800px'
     popupRegister.style.height = '500px'
 }

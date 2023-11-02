@@ -130,7 +130,7 @@
                       
                       
                      } else{
-                                echo'<p class="rupture"><a class="rupture" id="insc" ><b>Pour commander, vous
+                                echo'<p class="rupture"><a class="rupture" id="insc" onClick="openRegister()"><b>Pour commander, vous
                                 devez être un utilisateur inscrit. Cliquez ce lien pour créer un compte et commencer vos
                                 achats ! <b></a></p>
                               
@@ -154,6 +154,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="script.js"></script>
     <?php
     
    // Commencez ou reprenez la session
