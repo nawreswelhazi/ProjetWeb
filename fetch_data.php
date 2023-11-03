@@ -2,6 +2,7 @@
 <?php
 
 //fetch_data.php
+session_start();
 include('connexion.php');
 if(isset($_POST["action"]))
 {
@@ -69,8 +70,12 @@ if(isset($_POST["action"]))
                         <h4 class="head1">'.$row['nom'].'</h4>
                         </a>
                         <p class="per1">1 x '.$row['Qteunite'].$row['unite'].'</p>
-                        <h4 class="head1">'.$row['prix'].' euros</h4><button  class="btnc my-4"><a id="buttonAjout" href="detailsProduit.php?id='.$row['urlP'].' ">Ajouter  au panier</a></button>
-                        
+                        <h4 class="head1">'.$row['prix'].' euros</h4>';
+
+                        if (isset($_SESSION['id'])){
+                            $output .= '<button  class="btnc my-4"><a id="buttonAjout" href="detailsProduit.php?id='.$row['urlP'].' ">Ajouter  au panier</a></button>';
+                        }
+                    $output .='  
                     </div>
                 </div>
             </div>';

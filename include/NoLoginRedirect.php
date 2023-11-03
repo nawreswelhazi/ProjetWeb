@@ -1,5 +1,5 @@
 <?php
-    if (isset($_SESSION["id"])==false)
+    if (!(isset($_SESSION['id'])))
     {
         header("Location:./index.php");
     }
