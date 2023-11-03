@@ -10,6 +10,7 @@ if(isset($_POST["email"]))
  $nom = $_POST["nom"];
  $prenom = $_POST["prenom"];
  $password = $_POST["password"];
+ $hash = password_hash($password, PASSWORD_DEFAULT);
  $confPassword = $_POST["confPassword"];
  $email=$_POST["email"];
  $dateNaissance=$_POST["dateNaissance"];
@@ -30,7 +31,7 @@ if(isset($_POST["email"]))
     
   }else{
     session_start();
-    $query = "INSERT INTO client (email,password,nom,prenom,dateNaissance) VALUES('$email','$password','$nom', '$prenom','$dateNaissance')";
+    $query = "INSERT INTO client (email,password,nom,prenom,dateNaissance) VALUES('$email','$hash','$nom', '$prenom','$dateNaissance')";
     $result = mysqli_query($connect, $query);
 
   $nouvel_utilisateur_id = mysqli_insert_id($connect);

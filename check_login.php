@@ -27,7 +27,7 @@ if(isset($_POST["email"]))
     
     
 
-   if($_POST["password"]==$row["password"])
+   if(password_verify($_POST["password"],$row["password"]))
    {
     $_SESSION["id"] = $row["id"];
     $_SESSION["name"] = $row["prenom"];

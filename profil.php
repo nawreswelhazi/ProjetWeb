@@ -420,7 +420,7 @@
                         var mdpNouv2 = document.getElementById("mdpN2P").value;
                         var userCurrentMDP = '<?php echo $user_currentMDP; ?>';
                         if (mdpActuel !== "" && mdpNouv !== "" && mdpNouv2 !== "") {
-                            if (userCurrentMDP === mdpActuel) {
+                            if (password_verify(mdpActuel, userCurrentMDP)) {
                                 if (mdpNouv === mdpNouv2) {
                                     $.ajax({
                                         url: 'modifPassword.php',
