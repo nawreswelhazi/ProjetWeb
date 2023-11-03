@@ -14,10 +14,13 @@
 </head>
 
 <body>
+    <?php include("include/noLoginRedirect.php"); ?>
     <?php include 'include/nav.php' ?>
 
 
     <?php include 'connexion.php' ?>
+
+    
 
 
 
