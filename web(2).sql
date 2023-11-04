@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 01 nov. 2023 à 17:48
+-- Généré le : sam. 04 nov. 2023 à 19:36
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -74,24 +74,9 @@ CREATE TABLE `client` (
 INSERT INTO `client` (`id`, `email`, `password`, `nom`, `prenom`, `dateNaissance`, `adresse`, `photo`, `nrTelph`, `Pays`) VALUES
 (1, 'Aya@gmail.com', 'aya', 'larif', 'Aya', '2013-09-10', 'gaston defferre', 'blob:http://localhost/787ab324-132a-4aca-932b-093d480d9606', 2222, 'Belgique'),
 (3, 'nawreswelhazi@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2009-12-06', '', '', 0, ''),
-(4, 'nawres@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2009-12-06', '', '', 0, ''),
-(5, 'aya1@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-10', '', '', 0, ''),
-(6, 'aya11@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-10', '', '', 0, ''),
-(7, 'nawress@hotmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-18', '', '', 0, ''),
-(8, 'ayaaa@gmail.com', 'Souad&@3Kaies', 'naoures', 'naoures', '2023-09-28', '', '', 0, ''),
-(9, 'ayaaaaa@gmail.com', 'Souad&@3Kaies', 'naoures', 'naoures', '2023-09-28', '', '', 0, ''),
-(10, 'ayaaaa@gmail.com', 'Souad&@3Kaies', 'naoures', 'ouelhazi', '2023-09-27', '', '', 0, ''),
-(11, 'ayyya@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-12', '', '', 0, ''),
-(12, 'ayyyya@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-26', '', '', 0, ''),
-(13, 'aaaya@gmail.com', 'Souad&@3Kaies', 'Souad', 'ouelhazi', '2023-10-03', '', '', 0, ''),
-(14, 'ayyza@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-18', '', '', 0, ''),
-(15, 'kaiesa@gmail.com', 'Souad&@3Kaies', 'kaies', 'ouelhazi', '2023-10-11', '', '', 0, ''),
-(16, 'kaiessa@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'Kaies', '2023-10-12', '', '', 0, ''),
-(17, 'ayttta@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-19', '', '', 0, ''),
-(18, 'aytttza@gmail.com', 'Souad&@3Kaies', 'ouelhazi', 'naoures', '2023-10-19', '', '', 0, ''),
-(19, 'ayar@gmail.com', 'Souad&@3Kaies', 'kaies', 'naoures', '2023-10-04', '', '', 0, ''),
-(20, 'ayrrra@gmail.com', 'Souad&@3Kaies', 'aaa', 'aaa', '2023-10-24', '', '', 0, ''),
-(21, 'artttya@gmail.com', 'Souad&@3Kaies', 'kaies', 'ouelhazi', '2023-10-24', '', '', 0, '');
+(24, 'laarrifaya@gmail.com', '$2y$10$KHXbCuajLUvd.xRZLBnWp.YHZrbDJGJsUcc5oHpQ/d4Mtym54PeuO', 'Laarif', 'Aya', '2023-11-21', '', '', 0, ''),
+(25, 'larrifaya@gmail.com', '$2y$10$1sKZalLe33y31tkHlkX7OeXjt6wTd/5XFJCeyjqueJRwIbAuS4j4S', 'Laarif', 'Aya', '2023-11-22', '', '', 0, ''),
+(26, 'larrifaya@gmail.com', '$2y$10$3f64aXssWISgq5eV/mwR0usZ0qhGPkpNzgn8bz4COugbgWuZrl9lG', 'Laarif', 'Aya', '2023-11-22', '', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -117,7 +102,30 @@ INSERT INTO `commande` (`id`, `id_client`, `date`, `totalPrix`) VALUES
 (7, 1, '2023-11-01 05:22:24', 14),
 (8, 1, '2023-11-01 05:37:18', 10),
 (9, 1, '2023-11-01 05:38:39', 30),
-(10, 3, '2023-11-01 06:25:50', 30);
+(10, 3, '2023-11-01 06:25:50', 30),
+(11, 1, '2023-11-03 00:37:00', 20),
+(12, 1, '2023-11-03 00:40:45', 16),
+(13, 26, '2023-11-04 04:40:05', 6.75);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `gerant`
+--
+
+CREATE TABLE `gerant` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `gerant`
+--
+
+INSERT INTO `gerant` (`id`, `nom`, `email`, `password`) VALUES
+(1, 'admin', 'admin@admin.com', 'admin');
 
 -- --------------------------------------------------------
 
@@ -146,7 +154,10 @@ INSERT INTO `lignecommande` (`id`, `id_produit`, `id_commande`, `quantite`, `tot
 (12, 7, 7, 7, 14),
 (13, 7, 8, 5, 10),
 (14, 4, 9, 10, 30),
-(15, 8, 10, 10, 30);
+(15, 8, 10, 10, 30),
+(16, 1, 11, 5, 20),
+(17, 1, 12, 4, 16),
+(18, 12, 13, 3, 6.75);
 
 -- --------------------------------------------------------
 
@@ -213,6 +224,12 @@ ALTER TABLE `commande`
   ADD KEY `id_client` (`id_client`);
 
 --
+-- Index pour la table `gerant`
+--
+ALTER TABLE `gerant`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `lignecommande`
 --
 ALTER TABLE `lignecommande`
@@ -242,19 +259,25 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `gerant`
+--
+ALTER TABLE `gerant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `lignecommande`
 --
 ALTER TABLE `lignecommande`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
