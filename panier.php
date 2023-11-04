@@ -21,11 +21,12 @@
 </head>
 
 <body>
-   <?php include("include/noLoginRedirect.php"); ?>
+   
     <?php include 'include/database.php' ?>
     <?php include 'include/nav.php' ?>
     <?php include 'include/utils.php' ?>
     <?php include 'connexion.php' ?>
+    <?php include("include/noLoginRedirect.php"); ?>
    
 
     <div id="content">

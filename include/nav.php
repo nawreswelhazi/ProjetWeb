@@ -73,7 +73,7 @@ session_start();  ?>
               
               if(isset($_SESSION["name"]))
               {   
-                echo"<span><a href='profil.php'><i class='bi bi-person-fill'></i></a></span>";
+                echo"<span><a href='profil.php' onClick='include(\"include/noLoginRedirect.php\");'><i class='bi bi-person-fill'></i></a></span>";
                   echo "<span><a href='panier.php'><i class='bi bi-basket px-3'></i></a></span>";
                     echo  "<span> <a href='logout.php'><i  class='bi bi-box-arrow-right px-3'></i></a></span>";
                 }  else{
