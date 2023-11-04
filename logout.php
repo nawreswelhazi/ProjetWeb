@@ -2,11 +2,23 @@
 <?php  
 
 //logout.php
- 
 session_start();
 
-session_destroy();
+if (isset($_SESSION['id']))
+{
+    $role= $_SESSION['role'];
+    session_destroy();
+    if ($role=='admin'){
+        header("location:admin/login.php");
+    }else {
+        header("location:index.php");
+    }
+}
 
-header("location:index.php");
+
+
+
+
+
 
 ?>
