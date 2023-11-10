@@ -116,19 +116,17 @@
           
           <script>
             (function() {
-            filterList = [];
-            filterList.push(1);
             
             function filter_data1()
             {
               $('.filter_data1').html('<div id="loading" style="" ></div>');
               var action = 'fetch_data';
               $.ajax({
-                  url:"BestProduct.php",
+                  url:"BestProduct.php", //La séléction des produits se fait dans ce fichier php
                   method:"POST",
-                  data:{action:action, category:filterList}, //Selon le filtre du user, nous allons afficher les données
+                  data:{action:action},
                   success:function(data){
-                      $('.filter_data1').html(data);
+                      $('.filter_data1').html(data); //En cas de succès, le code html s'ajoute la div associé pour les meilleurs produits
                   }
               });
             }
@@ -188,8 +186,7 @@
             </div>
           
             <script>
-              (function(){filterList = [];
-              filterList.push(1);
+              (function(){
               
               function filter_data2()
               {
@@ -198,7 +195,7 @@
                 $.ajax({
                     url:"NewProduct.php",
                     method:"POST",
-                    data:{action:action, category:filterList}, //Selon le filtre du user, nous allons afficher les données
+                    data:{action:action}, //Selon le filtre du user, nous allons afficher les données
                     success:function(data){
                         $('.filter_data2').html(data);
                     }

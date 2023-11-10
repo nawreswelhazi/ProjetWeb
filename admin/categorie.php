@@ -97,7 +97,7 @@ GROUP by c.id" ;
             
            <!-- <form style="display:inline-block;margin-top:0%;"action="" method="post"> -->
            <button type="button" onclick="demanderConfirmationEdit(<?php echo $row['id']; ?>)"
-             style="color:#999;background-color:transparent;border:none;"><i style="font-size: 150%" class="fa fa-trash-o" aria-hidden="true" ></i> Edit </button>
+             style="color:#999;background-color:transparent;border:none;"><i style="font-size: 150%" class="fa fa-edit" aria-hidden="true" ></i> Edit </button>
            
              <form  method="POST" id="formupdate<?php  echo $row['id']; ?>" style="display: none;" >
              <input style="border-radius: .375rem;width:50%;" value="<?php echo $row['nom']; ?>" placeholder="Nouveau nom" name="nomcat<?php  echo $row['id']; ?>" type="text"  id="nomcat<?php  echo $row['id']; ?>"  required>

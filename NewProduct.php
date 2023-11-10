@@ -6,9 +6,7 @@ include('connexion.php');
 if(isset($_POST["action"]))
 {
 	$query = "
-    SELECT * FROM produit ORDER BY FirstCreat DESC, id ASC LIMIT 6
-";
-    //"SELECT * FROM produit ORDER BY classement DESC, id ASC LIMIT 6";
+    SELECT * FROM produit ORDER BY FirstCreat DESC, id ASC LIMIT 6";
 	
 	$result=mysqli_query($con,$query);
             
