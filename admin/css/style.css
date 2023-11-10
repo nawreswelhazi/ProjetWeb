@@ -10,6 +10,21 @@ html, body{
   	overflow-x: hidden;
 	background-color: #edecec;
 }
+.detailscommande th,.td td{
+    text-align:center;
+    border: 1px solid black;
+    color:black !important;
+}
+.total {
+    text-align:center;
+    background-color:#f7faf8;
+    border: 1px solid black;
+    color:black !important;
+   
+                    
+
+}
+
 .demo-modal {
     position: static;
     display: block;

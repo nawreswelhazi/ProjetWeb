@@ -20,7 +20,7 @@
 <!--inner block end here-->
 <!--copy rights start here-->
 <div class="copyrights">
-	<p>© 2016 Pooled. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+	<p><a href="" target="_blank">buybio</a>  </p>
 </div>
 <!--COPY rights end here-->
 </div>
@@ -37,69 +37,19 @@
 			<li><a href="dashboard.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
 					<div class="clearfix"></div>
 				</a></li>
-			<!-- <li id="menu-academico"><a href="#"><i class="fa fa-users" aria-hidden="true"></i><span> Gestion
-						Categories</span> <span class="fa fa-angle-right" style="float: right"></span>
-					<div class="clearfix"></div>
-				</a>
-				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="{{route('client.create')}}">Ajouter un Client</a></li>
-					<li id="menu-academico-avaliacoes"><a href="{{route('client.index')}}">Liste des Clients</a></li>
-				</ul>
-			</li> -->
-			<!-- <li id="menu-academico"><a href="#"><i class="fa fa-users" aria-hidden="true"></i><span> Gestion
-						Employes</span> <span class="fa fa-angle-right" style="float: right"></span>
-					<div class="clearfix"></div>
-				</a>
-				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="{{route('employe.create')}}">Ajouter un Employe</a></li>
-					<li id="menu-academico-avaliacoes"><a href="{{route('employe.index')}}">Liste des Employes</a></li>
-				</ul>
-			</li> -->
 			<li><a href="categorie.php"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Gestion
-						Categories</span>
+						Catalogues</span>
 					<div class="clearfix"></div>
 				</a></li>
-			<li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Gestion
-						Produits</span> <span class="fa fa-angle-right" style="float: right"></span>
-					<div class="clearfix"></div>
-				</a>
-				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="produit.php">Ajouter un produit</a></li>
-					<li id="menu-academico-avaliacoes"><a href="produit.php">Liste des Produits</a></li>
-					<li id="menu-academico-avaliacoes"><a href="/image">ajouter image </a></li>
-
-				</ul>
-			</li>
-
-			<!-- <li><a href="{{route('chargeglobale.index')}}"><i class="fa fa-dollar" aria-hidden="true"></i><span>Charge
-						Globale</span>
+				<li><a href="produit.php"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Gestion
+				Produits</span>
 					<div class="clearfix"></div>
 				</a></li>
-			<li id="menu-academico"><a href="{{route('chargeemploye.index')}}"><i class="fa fa-dollar"></i><span>Charge
-						Employé</span>
+			
+			<li><a href="commande.php"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Gestion
+			      Commandes</span>
 					<div class="clearfix"></div>
 				</a></li>
-			<li id="menu-academico"><a href="#"><i class="fa fa-dollar" aria-hidden="true"></i><span>Charge
-						Annuelle</span> <span class="fa fa-angle-right" style="float: right"></span>
-					<div class="clearfix"></div>
-				</a>
-				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="{{route('chargeannuelle.create')}}">Ajouter un charge
-						</a></li>
-					<li id="menu-academico-avaliacoes"><a href="{{route('chargeannuelle.index')}}">Liste des Charges</a>
-					</li>
-				</ul>
-			</li> -->
-			<li id="menu-academico"><a href="#"><i class="fa fa-file-text-o"></i><span>Gestion Commandes</span> <span
-						class="fa fa-angle-right" style="float: right"></span>
-					<div class="clearfix"></div>
-				</a>
-				<ul id="menu-academico-sub">
-					<!-- <li id="menu-academico-avaliacoes"><a href="{{route('facture.create')}}">Ajouter une facture</a>
-					</li> -->
-					<li id="menu-academico-avaliacoes"><a href="commande.php">Liste des commandes</a></li>
-				</ul>
-			</li>
 
 		</ul>
 	</div>
@@ -188,6 +138,8 @@
 
 	});
 </script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
