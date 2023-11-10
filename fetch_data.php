@@ -7,15 +7,8 @@ include('connexion.php');
 if(isset($_POST["action"]))
 {
 	$query = "
-		SELECT * FROM produit WHERE id IS NOT NULL 
-	";
+		SELECT * FROM produit WHERE id IS NOT NULL";
 	
-	if(isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["minimum_price"]) && !empty($_POST["maximum_price"]))
-	{
-		$query .= "
-		  AND prix BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
-		";
-	}
 	if(isset($_POST["category"]))
 	{
 		$category_filter = implode("','", $_POST["category"]);
