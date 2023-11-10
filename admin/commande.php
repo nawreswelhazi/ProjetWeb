@@ -1,5 +1,6 @@
 <?php include "headerAdmin.php";
  include "../include/database.php";
+ include "./RedirectAdmin.php";
  $get_Chiffre = "SELECT SUM(totalPrix) AS somme_prix_total FROM commande WHERE DATE(date) >= DATE_FORMAT(CURDATE(), '%Y-%m-01');";
  $run_Chiffre = mysqli_query($con,$get_Chiffre);    
  ?>

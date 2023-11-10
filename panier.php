@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>Panier</title>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,10 +21,9 @@
 </head>
 
 <body>
-    <?php include 'include/database.php' ?>
-    <?php include 'include/nav.php' ?>
-    <?php include("include/noLoginRedirect.php"); ?>
-    <?php include 'connexion.php' ?>
+    <?php include 'include/database.php';
+    include 'include/nav.php';
+    include 'connexion.php'; ?>
    
 
     <div id="content">
@@ -158,15 +157,10 @@
 
         </div><!-- container Ends -->
     </div><!-- content Ends -->
-    <script>
-   
-</script>
-
 
 <script src="sweetalert.min.js"></script>
 <script src="panier.js"></script>
 
-    <?php include("include/footer.php"); ?>
 </body>
 
 </html>
