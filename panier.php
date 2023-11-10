@@ -94,13 +94,13 @@
 
 
                                                 <td>
-                                                    <?php echo $only_price; ?> euro
+                                                    <?php echo $only_price; ?> €
                                                 </td>
                                                 <td><input type="checkbox" name="remove[]" value="<?php echo $product_id; ?>">
                                                 </td>
                                                 <td>
                                                   <input type="hidden" value="<?php echo $sub_total?> " name="total_prix[<?php echo $product_id; ?>]">
-                                                    <?php echo $sub_total; ?>euro
+                                                    <?php echo $sub_total; ?>€
                                                 </td>
                                             </tr>
                                         <?php }
@@ -111,7 +111,7 @@
                                         <th colspan="5"> Total </th>
                                         <th colspan="2">
                                         <input type="hidden" value="<?php echo $total?> " name="total">
-                                            <?php echo $total; ?> euro
+                                            <?php echo $total; ?> €
                                         </th>
                                     </tr>
                                 </tfoot>

@@ -229,10 +229,11 @@
 
                                             ?>
                                             <tr>
+                                            <td class="commande_id" style="display:none;"> <?php echo $commande['id'] ?></td>
+                                                <td >
                                                
-                                                <td id="commande_id">
-                                               
-                                                    <?php echo $commande['id'];
+                                                    <?php echo $i;
+                                                    $i=$i+1 ;
                                                      ?>
                                                 </td>
 
@@ -242,7 +243,7 @@
 
 
 
-                                                <td><a id="details" class="btn btn-outline-dark view_commande"
+                                                <td><a  data-toggle="modal" data-target="#exampleModal-2"  id="details" class="btn btn-outline-dark view_data"
                                                       href="#" >détails</a></td>
                                             </tr>
                                             <?php
@@ -250,6 +251,31 @@
                                         ?>
                                     </tbody>
                                 </table>
+                                <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 style="display: inline-block;color:rgb(20, 219, 20);" class="modal-title" id="exampleModalLabel-2">details Commande</h4>
+          <button style="display: inline-block;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+       
+           
+        <div class="modal-body">
+        <div class="view_commande_data">
+                   
+       
+        </div>
+        </div>
+        <div class="modal-footer">
+         
+          <button style="border-radius:.375rem;" type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
                             </div>
                         </div>
@@ -478,6 +504,32 @@
 
         
     </script>
+    <script>
+    $(document).ready(function() {
+    $('.view_data').click(function (e) {
+        e.preventDefault();
+        console.log('hello');
+       var commande_id= $(this).closest('tr').find('.commande_id').text();
+       console.log(commande_id);
+    $.ajax({
+            method: "POST",
+            url: "details_commande_client.php", 
+            data:{
+               'click_view_btn':true,
+               'commande_id':commande_id,
+
+
+            },
+            success: function(response) {
+                console.log(response);
+                $('.view_commande_data').html(response);
+                
+        
+            }
+        });   
+    });
+});
+</script>
 </body>
 
 </html>
